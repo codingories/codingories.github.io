@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Ories的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Mon, 11 Oct 2021 21:12:34 +0800</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Oct 2021 21:19:38 +0800</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何用hugo搭建个人博客</title>
+      <link>http://example.org/posts/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Mon, 11 Oct 2021 21:19:38 +0800</pubDate>
+      
+      <guid>http://example.org/posts/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <description>今天分享一下mac电脑上如何搭建一个hugo个人博客。
+安装hugo brew install hugo  验证hugo安装成功  hugo version 参考hugo的文档  hugo官网 改成自己的站点名字  hugo new site codingories.github.io-creator  安装主题  cd quickstart git init git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke echo theme = \&amp;quot;ananke\&amp;quot; &amp;gt;&amp;gt; config.toml  创建博客，这边需要注意要加md  hugo new posts/我的第一篇博客.md  运行网站服务器  hugo server -D  编辑自定义主题config.toml  baseURL = &amp;quot;https://example.org/&amp;quot; languageCode = &amp;quot;en-us&amp;quot; title = &amp;quot;My New Hugo Site&amp;quot; theme = &amp;quot;ananke&amp;quot;  生成静态页面  hugo -D 将public提交到github仓库  参考github静态页面教程，进行部署和配置域名等操作  </description>
+    </item>
+    
     <item>
       <title>第三篇博客</title>
       <link>http://example.org/posts/%E7%AC%AC%E4%B8%89%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
