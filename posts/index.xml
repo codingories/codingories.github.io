@@ -6,7 +6,25 @@
     <description>Recent content in Posts on Ories的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Mon, 11 Oct 2021 21:19:38 +0800</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Sep 2022 16:43:05 +0800</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我的第一篇博客11</title>
+      <link>http://example.org/posts/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A211/</link>
+      <pubDate>Wed, 21 Sep 2022 16:43:05 +0800</pubDate>
+      
+      <guid>http://example.org/posts/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A211/</guid>
+      <description>4444</description>
+    </item>
+    
+    <item>
+      <title>我的第一篇博客</title>
+      <link>http://example.org/posts/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Wed, 21 Sep 2022 16:43:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
+      <description>测试1123</description>
+    </item>
+    
     <item>
       <title>如何用hugo搭建个人博客</title>
       <link>http://example.org/posts/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
