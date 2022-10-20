@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>前端面试题 | Ories的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="React相关  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205     1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点: 会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
+{ tag: &#39;div&#39;, props: { id: &#39;x&#39; }, children: [ { tag: &#39;span&#39;, props: { className: &#39;red&#39; }, children: [ &#39;hi&#39; ], } ] } 为什么写这么个标签能变成这样一个对象，这是因为JSX的语法。能做到这一点是因为JSX语法会被转译为createElement函数调用(也叫h函数)，如下:
+React.createElement(&#34;div&#34;,{ id:&#34;x&#34;}, React.createElement(&#34;span&#34;,{ class: &#34;red&#34; },&#34;hi&#34;) ) 第二步是将虚拟节点渲染为真实节点， 参考:https://juejin.cn/post/6844903870229905422
+function render(vdom) { // 如果是字符串或者数字，创建一个文本节点  if (typeof vdom === &#39;string&#39; || typeof vdom === &#39;number&#39;) { return document.">
+    <meta name="generator" content="Hugo 0.79.1" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="前端面试题" />
+<meta property="og:description" content="React相关  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205     1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点: 会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
+{ tag: &#39;div&#39;, props: { id: &#39;x&#39; }, children: [ { tag: &#39;span&#39;, props: { className: &#39;red&#39; }, children: [ &#39;hi&#39; ], } ] } 为什么写这么个标签能变成这样一个对象，这是因为JSX的语法。能做到这一点是因为JSX语法会被转译为createElement函数调用(也叫h函数)，如下:
+React.createElement(&#34;div&#34;,{ id:&#34;x&#34;}, React.createElement(&#34;span&#34;,{ class: &#34;red&#34; },&#34;hi&#34;) ) 第二步是将虚拟节点渲染为真实节点， 参考:https://juejin.cn/post/6844903870229905422
+function render(vdom) { // 如果是字符串或者数字，创建一个文本节点  if (typeof vdom === &#39;string&#39; || typeof vdom === &#39;number&#39;) { return document." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" />
+<meta property="article:published_time" content="2022-10-20T10:36:47+08:00" />
+<meta property="article:modified_time" content="2022-10-20T10:36:47+08:00" />
+<meta itemprop="name" content="前端面试题">
+<meta itemprop="description" content="React相关  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205     1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点: 会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
+{ tag: &#39;div&#39;, props: { id: &#39;x&#39; }, children: [ { tag: &#39;span&#39;, props: { className: &#39;red&#39; }, children: [ &#39;hi&#39; ], } ] } 为什么写这么个标签能变成这样一个对象，这是因为JSX的语法。能做到这一点是因为JSX语法会被转译为createElement函数调用(也叫h函数)，如下:
+React.createElement(&#34;div&#34;,{ id:&#34;x&#34;}, React.createElement(&#34;span&#34;,{ class: &#34;red&#34; },&#34;hi&#34;) ) 第二步是将虚拟节点渲染为真实节点， 参考:https://juejin.cn/post/6844903870229905422
+function render(vdom) { // 如果是字符串或者数字，创建一个文本节点  if (typeof vdom === &#39;string&#39; || typeof vdom === &#39;number&#39;) { return document.">
+<meta itemprop="datePublished" content="2022-10-20T10:36:47+08:00" />
+<meta itemprop="dateModified" content="2022-10-20T10:36:47+08:00" />
+<meta itemprop="wordCount" content="207">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="前端面试题"/>
+<meta name="twitter:description" content="React相关  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205     1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点: 会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
+{ tag: &#39;div&#39;, props: { id: &#39;x&#39; }, children: [ { tag: &#39;span&#39;, props: { className: &#39;red&#39; }, children: [ &#39;hi&#39; ], } ] } 为什么写这么个标签能变成这样一个对象，这是因为JSX的语法。能做到这一点是因为JSX语法会被转译为createElement函数调用(也叫h函数)，如下:
+React.createElement(&#34;div&#34;,{ id:&#34;x&#34;}, React.createElement(&#34;span&#34;,{ class: &#34;red&#34; },&#34;hi&#34;) ) 第二步是将虚拟节点渲染为真实节点， 参考:https://juejin.cn/post/6844903870229905422
+function render(vdom) { // 如果是字符串或者数字，创建一个文本节点  if (typeof vdom === &#39;string&#39; || typeof vdom === &#39;number&#39;) { return document."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Ories的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=http://example.org/posts/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=http://example.org/posts/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/&amp;text=%e5%89%8d%e7%ab%af%e9%9d%a2%e8%af%95%e9%a2%98" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://example.org/posts/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/&amp;title=%e5%89%8d%e7%ab%af%e9%9d%a2%e8%af%95%e9%a2%98" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">前端面试题</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-10-20T10:36:47+08:00">October 20, 2022</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h3 id="react相关">React相关</h3>
+<ul>
+<li>什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。
+<ul>
+<li>参考官方文档: <a href="https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom">https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom</a></li>
+<li>自己回答</li>
+<li>参考博客: <a href="https://juejin.cn/post/7136563454525063205">https://juejin.cn/post/7136563454525063205</a></li>
+</ul>
+</li>
+</ul>
+<pre><code>
+1.是什么
+虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲
+染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。
+2.怎么做
+第一步是模拟
+用JSX语法写出来的div其实就是一个虚拟节点:
+
+</code></pre><!-- raw HTML omitted -->
+<p>会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
+  <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;div&#39;</span>,
+  <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;x&#39;</span> },
+  <span style="color:#a6e22e">children</span><span style="color:#f92672">:</span> [
+    {
+      <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;span&#39;</span>,
+      <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">className</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;red&#39;</span> },
+      <span style="color:#a6e22e">children</span><span style="color:#f92672">:</span> [ <span style="color:#e6db74">&#39;hi&#39;</span> ],
+    }
+  ]
+}
+</code></pre></div><p>为什么写这么个标签能变成这样一个对象，这是因为JSX的语法。能做到这一点是因为JSX语法会被转译为createElement函数调用(也叫h函数)，如下:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#34;div&#34;</span>,{ <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;x&#34;</span>},
+  <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#34;span&#34;</span>,{ <span style="color:#66d9ef">class</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;red&#34;</span> },<span style="color:#e6db74">&#34;hi&#34;</span>)
+)
+</code></pre></div><p>第二步是将虚拟节点渲染为真实节点， 参考:https://juejin.cn/post/6844903870229905422</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">vdom</span>) {
+  <span style="color:#75715e">// 如果是字符串或者数字，创建一个文本节点
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">vdom</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;string&#39;</span> <span style="color:#f92672">||</span> <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">vdom</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;number&#39;</span>) {
+    <span style="color:#66d9ef">return</span> document.<span style="color:#a6e22e">createTextNode</span>(<span style="color:#a6e22e">vdom</span>)
+  }
+  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">tag</span>, <span style="color:#a6e22e">props</span>, <span style="color:#a6e22e">children</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">vdom</span>
+  <span style="color:#75715e">// 创建真实DOM
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#a6e22e">tag</span>)
+  <span style="color:#75715e">// 设置属性
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">setProps</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">props</span>)
+  <span style="color:#75715e">// 遍历子节点，并获取创建真实DOM，插入到当前节点
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">children</span>
+    .<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">render</span>)
+    .<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">appendChild</span>.<span style="color:#a6e22e">bind</span>(<span style="color:#a6e22e">element</span>))
+
+  <span style="color:#75715e">// 虚拟 DOM 中缓存真实 DOM 节点
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">vdom</span>.<span style="color:#a6e22e">dom</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">element</span>
+  
+  <span style="color:#75715e">// 返回 DOM 节点
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">element</span>
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">setProps</span> (<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">props</span>) {
+  Object.<span style="color:#a6e22e">entries</span>(<span style="color:#a6e22e">props</span>).<span style="color:#a6e22e">forEach</span>(([<span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">value</span>]) =&gt; {
+    <span style="color:#a6e22e">setProp</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">value</span>)
+  })
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">setProp</span> (<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">vlaue</span>) {
+  <span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">setAttribute</span>(
+    <span style="color:#75715e">// className使用class代替
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">key</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;className&#39;</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;class&#39;</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">key</span>,
+    <span style="color:#a6e22e">vlaue</span>
+  )
+}
+</code></pre></div><p>注意，如果节点发生变化，并不会直接把新虚拟节点渲染到真实节点，而是先经过diff算法得到
+一个patch再更新到真实节点上。
+3.解决了什么问题</p>
+<ul>
+<li>a.DOM操作性能问题。通过虚拟DOM和diff算法减少不必要的DOM操作，保证性能不太差
+<ul>
+<li>具体场景是在频繁的操作dom的时候，避免性能不太差，当然自己也可以用documentfragment去做但是很多人并不知道</li>
+<li>参考:https://developer.mozilla.org/zh-CN/docs/Web/API/DocumentFragment</li>
+<li>参考:https://www.jianshu.com/p/0b09d0a5ac45</li>
+</ul>
+</li>
+<li>b.DOM操作不方便问题。以前各种DOM API要记，现在只有setState</li>
+</ul>
+<ol start="4">
+<li>优点</li>
+</ol>
+<ul>
+<li>虚拟节点的优点:
+<ul>
+<li>a.为React带来了跨平台能力，因为虚拟节点除了渲染为真实节点，还可以渲染为其他东西。</li>
+<li>b.让DOM操作的整体性能更好，能(通过diff)减少不必要的DOM操作。</li>
+</ul>
+</li>
+</ul>
+<ol start="5">
+<li>缺点</li>
+</ol>
+<ul>
+<li>a.性能要求极高的地方，还是得用真实 DOM 操作（目前没遇到这种需求）</li>
+<li>b.React 为虚拟 DOM 创造了合成事件，跟原生 DOM 事件不太一样，工作中要额外注意
+<ul>
+<li>所有 React 事件都绑定到根元素，自动实现事件委托</li>
+<li>如果混用合成事件和原生 DOM 事件，有可能会出 bug，(举例一个事件阻止冒泡，另一个事件还是冒泡了)</li>
+</ul>
+</li>
+</ul>
+<ol start="6">
+<li>如何解决缺点</li>
+</ol>
+<ul>
+<li>不用 React，用 Vue 3</li>
+</ul>
+<h3 id="dom-diff-算是怎么样的">DOM diff 算是怎么样的？</h3>
+<ul>
+<li>说过程，两方面:一方面官方文档，另一方面民间博客。</li>
+<li>解题六字箴言:1.什么是？2.怎么做。</li>
+</ul>
+<ol>
+<li>什么是?</li>
+</ol>
+<ul>
+<li>DOM diff 就是对比两棵虚拟 DOM 树的算法（废话很重要）。当组件变化时，会 render 出一个新的虚拟 DOM，diff 算法对比新旧虚拟 DOM 之后，得到一个 patch，然后 React 用 patch 来更新真实 DOM。</li>
+</ul>
+<ol start="2">
+<li>怎么做。</li>
+</ol>
+<ul>
+<li>首先，对比两棵树的根节点
+<ul>
+<li>如果根节点的类型改变了，比如 div 变成了 p，那么直接认为整棵树都变了，不再对比子节点。此时直接删除对应的真实 DOM 树，创建新的真实 DOM树。
+<img src="/static/diff1.png" alt="diff1"></li>
+</ul>
+</li>
+</ul>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  Ories的博客 2022 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
