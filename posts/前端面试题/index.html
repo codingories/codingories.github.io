@@ -6,7 +6,8 @@
     
     <title>前端面试题 | Ories的博客</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="1. 什么是虚拟dom  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205     1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点: 会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
+    <meta name="description" content="1. 什么是虚拟dom  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205    1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点:
+&lt;div id=&quot;x&quot;&gt; &lt;span class=&quot;red&quot;&gt;hi&lt;/span&gt;	&lt;/div&gt;	会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
 { tag: &#39;div&#39;, props: { id: &#39;x&#39; }, children: [ { tag: &#39;span&#39;, props: { className: &#39;red&#39; }, children: [ &#39;hi&#39; ], } ] } 为什么写这么个标签能变成这样一个对象，这是因为JSX的语法。能做到这一点是因为JSX语法会被转译为createElement函数调用(也叫h函数)，如下:
 React.createElement(&#34;div&#34;,{ id:&#34;x&#34;}, React.createElement(&#34;span&#34;,{ class: &#34;red&#34; },&#34;hi&#34;) ) 第二步是将虚拟节点渲染为真实节点， 参考:https://juejin.cn/post/6844903870229905422
 function render(vdom) { // 如果是字符串或者数字，创建一个文本节点  if (typeof vdom === &#39;string&#39; || typeof vdom === &#39;number&#39;) { return document.">
@@ -30,7 +31,8 @@ function render(vdom) { // 如果是字符串或者数字，创建一个文本�
     
     
     <meta property="og:title" content="前端面试题" />
-<meta property="og:description" content="1. 什么是虚拟dom  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205     1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点: 会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
+<meta property="og:description" content="1. 什么是虚拟dom  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205    1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点:
+&lt;div id=&quot;x&quot;&gt; &lt;span class=&quot;red&quot;&gt;hi&lt;/span&gt;	&lt;/div&gt;	会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
 { tag: &#39;div&#39;, props: { id: &#39;x&#39; }, children: [ { tag: &#39;span&#39;, props: { className: &#39;red&#39; }, children: [ &#39;hi&#39; ], } ] } 为什么写这么个标签能变成这样一个对象，这是因为JSX的语法。能做到这一点是因为JSX语法会被转译为createElement函数调用(也叫h函数)，如下:
 React.createElement(&#34;div&#34;,{ id:&#34;x&#34;}, React.createElement(&#34;span&#34;,{ class: &#34;red&#34; },&#34;hi&#34;) ) 第二步是将虚拟节点渲染为真实节点， 参考:https://juejin.cn/post/6844903870229905422
 function render(vdom) { // 如果是字符串或者数字，创建一个文本节点  if (typeof vdom === &#39;string&#39; || typeof vdom === &#39;number&#39;) { return document." />
@@ -39,20 +41,22 @@ function render(vdom) { // 如果是字符串或者数字，创建一个文本�
 <meta property="article:published_time" content="2022-10-20T10:36:47+08:00" />
 <meta property="article:modified_time" content="2022-10-20T10:36:47+08:00" />
 <meta itemprop="name" content="前端面试题">
-<meta itemprop="description" content="1. 什么是虚拟dom  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205     1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点: 会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
+<meta itemprop="description" content="1. 什么是虚拟dom  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205    1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点:
+&lt;div id=&quot;x&quot;&gt; &lt;span class=&quot;red&quot;&gt;hi&lt;/span&gt;	&lt;/div&gt;	会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
 { tag: &#39;div&#39;, props: { id: &#39;x&#39; }, children: [ { tag: &#39;span&#39;, props: { className: &#39;red&#39; }, children: [ &#39;hi&#39; ], } ] } 为什么写这么个标签能变成这样一个对象，这是因为JSX的语法。能做到这一点是因为JSX语法会被转译为createElement函数调用(也叫h函数)，如下:
 React.createElement(&#34;div&#34;,{ id:&#34;x&#34;}, React.createElement(&#34;span&#34;,{ class: &#34;red&#34; },&#34;hi&#34;) ) 第二步是将虚拟节点渲染为真实节点， 参考:https://juejin.cn/post/6844903870229905422
 function render(vdom) { // 如果是字符串或者数字，创建一个文本节点  if (typeof vdom === &#39;string&#39; || typeof vdom === &#39;number&#39;) { return document.">
 <meta itemprop="datePublished" content="2022-10-20T10:36:47+08:00" />
 <meta itemprop="dateModified" content="2022-10-20T10:36:47+08:00" />
-<meta itemprop="wordCount" content="720">
+<meta itemprop="wordCount" content="1453">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="前端面试题"/>
-<meta name="twitter:description" content="1. 什么是虚拟dom  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205     1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点: 会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
+<meta name="twitter:description" content="1. 什么是虚拟dom  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205    1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点:
+&lt;div id=&quot;x&quot;&gt; &lt;span class=&quot;red&quot;&gt;hi&lt;/span&gt;	&lt;/div&gt;	会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
 { tag: &#39;div&#39;, props: { id: &#39;x&#39; }, children: [ { tag: &#39;span&#39;, props: { className: &#39;red&#39; }, children: [ &#39;hi&#39; ], } ] } 为什么写这么个标签能变成这样一个对象，这是因为JSX的语法。能做到这一点是因为JSX语法会被转译为createElement函数调用(也叫h函数)，如下:
 React.createElement(&#34;div&#34;,{ id:&#34;x&#34;}, React.createElement(&#34;span&#34;,{ class: &#34;red&#34; },&#34;hi&#34;) ) 第二步是将虚拟节点渲染为真实节点， 参考:https://juejin.cn/post/6844903870229905422
 function render(vdom) { // 如果是字符串或者数字，创建一个文本节点  if (typeof vdom === &#39;string&#39; || typeof vdom === &#39;number&#39;) { return document."/>
@@ -163,16 +167,16 @@ function render(vdom) { // 如果是字符串或者数字，创建一个文本�
 </ul>
 </li>
 </ul>
-<pre><code>
-1.是什么
+<p>1.是什么
 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲
 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。
 2.怎么做
 第一步是模拟
-用JSX语法写出来的div其实就是一个虚拟节点:
-
-</code></pre><!-- raw HTML omitted -->
-<p>会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本</p>
+用JSX语法写出来的div其实就是一个虚拟节点:</p>
+<pre><code>&lt;div id=&quot;x&quot;&gt;
+  &lt;span class=&quot;red&quot;&gt;hi&lt;/span&gt;	
+&lt;/div&gt;	
+</code></pre><p>会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
   <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;div&#39;</span>,
   <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;x&#39;</span> },
@@ -479,6 +483,328 @@ const ShowTheLocationWithRouter = withRouter(ShowTheLocation);
     <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">n</span>, <span style="color:#a6e22e">setNextN</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>)
     <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">first</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useRef</span>(<span style="color:#66d9ef">true</span>)
     <span style="color:#a6e22e">useEffect</span>(() =&gt; {
+        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">first</span>.<span style="color:#a6e22e">curren</span>
+<span style="color:#960050;background-color:#1e0010">###</span> <span style="color:#ae81ff">1.</span> <span style="color:#a6e22e">什么是虚拟dom</span>
+<span style="color:#f92672">-</span> <span style="color:#a6e22e">什么是虚拟dom</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">或者问虚拟DOM的原理是什么相关的问题</span><span style="color:#960050;background-color:#1e0010">。</span>
+  <span style="color:#f92672">-</span> <span style="color:#a6e22e">参考官方文档</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">https</span><span style="color:#f92672">:</span><span style="color:#75715e">//zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom
+</span><span style="color:#75715e"></span>  <span style="color:#f92672">-</span> <span style="color:#a6e22e">自己回答</span>
+  <span style="color:#f92672">-</span> <span style="color:#a6e22e">参考博客</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">https</span><span style="color:#f92672">:</span><span style="color:#75715e">//juejin.cn/post/7136563454525063205
+</span></code></pre></div><p>1.是什么
+虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲
+染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。
+2.怎么做
+第一步是模拟
+用JSX语法写出来的div其实就是一个虚拟节点:</p>
+<pre><code>&lt;div id=&quot;x&quot;&gt;
+  &lt;span class=&quot;red&quot;&gt;hi&lt;/span&gt;	
+&lt;/div&gt;	
+</code></pre><p>会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
+  <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;div&#39;</span>,
+  <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;x&#39;</span> },
+  <span style="color:#a6e22e">children</span><span style="color:#f92672">:</span> [
+    {
+      <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;span&#39;</span>,
+      <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">className</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;red&#39;</span> },
+      <span style="color:#a6e22e">children</span><span style="color:#f92672">:</span> [ <span style="color:#e6db74">&#39;hi&#39;</span> ],
+    }
+  ]
+}
+</code></pre></div><p>为什么写这么个标签能变成这样一个对象，这是因为JSX的语法。能做到这一点是因为JSX语法会被转译为createElement函数调用(也叫h函数)，如下:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#34;div&#34;</span>,{ <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;x&#34;</span>},
+  <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#34;span&#34;</span>,{ <span style="color:#66d9ef">class</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;red&#34;</span> },<span style="color:#e6db74">&#34;hi&#34;</span>)
+)
+</code></pre></div><p>第二步是将虚拟节点渲染为真实节点， 参考:https://juejin.cn/post/6844903870229905422</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">vdom</span>) {
+  <span style="color:#75715e">// 如果是字符串或者数字，创建一个文本节点
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">vdom</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;string&#39;</span> <span style="color:#f92672">||</span> <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">vdom</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;number&#39;</span>) {
+    <span style="color:#66d9ef">return</span> document.<span style="color:#a6e22e">createTextNode</span>(<span style="color:#a6e22e">vdom</span>)
+  }
+  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">tag</span>, <span style="color:#a6e22e">props</span>, <span style="color:#a6e22e">children</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">vdom</span>
+  <span style="color:#75715e">// 创建真实DOM
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#a6e22e">tag</span>)
+  <span style="color:#75715e">// 设置属性
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">setProps</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">props</span>)
+  <span style="color:#75715e">// 遍历子节点，并获取创建真实DOM，插入到当前节点
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">children</span>
+    .<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">render</span>)
+    .<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">appendChild</span>.<span style="color:#a6e22e">bind</span>(<span style="color:#a6e22e">element</span>))
+
+  <span style="color:#75715e">// 虚拟 DOM 中缓存真实 DOM 节点
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">vdom</span>.<span style="color:#a6e22e">dom</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">element</span>
+  
+  <span style="color:#75715e">// 返回 DOM 节点
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">element</span>
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">setProps</span> (<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">props</span>) {
+  Object.<span style="color:#a6e22e">entries</span>(<span style="color:#a6e22e">props</span>).<span style="color:#a6e22e">forEach</span>(([<span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">value</span>]) =&gt; {
+    <span style="color:#a6e22e">setProp</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">value</span>)
+  })
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">setProp</span> (<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">vlaue</span>) {
+  <span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">setAttribute</span>(
+    <span style="color:#75715e">// className使用class代替
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">key</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;className&#39;</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;class&#39;</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">key</span>,
+    <span style="color:#a6e22e">vlaue</span>
+  )
+}
+</code></pre></div><p>注意，如果节点发生变化，并不会直接把新虚拟节点渲染到真实节点，而是先经过diff算法得到
+一个patch再更新到真实节点上。
+3.解决了什么问题</p>
+<ul>
+<li>a.DOM操作性能问题。通过虚拟DOM和diff算法减少不必要的DOM操作，保证性能不太差
+<ul>
+<li>具体场景是在频繁的操作dom的时候，避免性能不太差，当然自己也可以用documentfragment去做但是很多人并不知道</li>
+<li>参考:https://developer.mozilla.org/zh-CN/docs/Web/API/DocumentFragment</li>
+<li>参考:https://www.jianshu.com/p/0b09d0a5ac45</li>
+</ul>
+</li>
+<li>b.DOM操作不方便问题。以前各种DOM API要记，现在只有setState</li>
+</ul>
+<ol start="4">
+<li>优点</li>
+</ol>
+<ul>
+<li>虚拟节点的优点:
+<ul>
+<li>a.为React带来了跨平台能力，因为虚拟节点除了渲染为真实节点，还可以渲染为其他东西。</li>
+<li>b.让DOM操作的整体性能更好，能(通过diff)减少不必要的DOM操作。</li>
+</ul>
+</li>
+</ul>
+<ol start="5">
+<li>缺点</li>
+</ol>
+<ul>
+<li>a.性能要求极高的地方，还是得用真实 DOM 操作（目前没遇到这种需求）</li>
+<li>b.React 为虚拟 DOM 创造了合成事件，跟原生 DOM 事件不太一样，工作中要额外注意
+<ul>
+<li>所有 React 事件都绑定到根元素，自动实现事件委托</li>
+<li>如果混用合成事件和原生 DOM 事件，有可能会出 bug，(举例一个事件阻止冒泡，另一个事件还是冒泡了)</li>
+</ul>
+</li>
+</ul>
+<ol start="6">
+<li>如何解决缺点</li>
+</ol>
+<ul>
+<li>不用 React，用 Vue 3</li>
+</ul>
+<h3 id="2-dom-diff-算是怎么样的-1">2. DOM diff 算是怎么样的？</h3>
+<ul>
+<li>说过程，两方面:一方面官方文档，另一方面民间博客。</li>
+<li>解题六字箴言:1.什么是？2.怎么做。</li>
+</ul>
+<ol>
+<li>什么是?</li>
+</ol>
+<ul>
+<li>DOM diff 就是对比两棵虚拟 DOM 树的算法（废话很重要）。当组件变化时，会 render 出一个新的虚拟 DOM，diff 算法对比新旧虚拟 DOM 之后，得到一个 patch，然后 React 用 patch 来更新真实 DOM。</li>
+</ul>
+<ol start="2">
+<li>怎么做。
+a. 首先，对比两棵树的根节点</li>
+</ol>
+<ul>
+<li>如果根节点的类型改变了，比如 div 变成了 p，那么直接认为整棵树都变了，不再对比子节点。此时直接删除对应的真实 DOM 树，创建新的真实DOM树。
+<img src="/diff1.png" alt="diff1"></li>
+<li>如果根节点的类型没变，就看看属性变了没有
+<ul>
+<li>如果没变，就保留对应的真实节点
+<img src="/diff1.png" alt="diff2"></li>
+<li>如果变了，就只更新该节点的属性，不重新创建节点。
+<ul>
+<li>更新 style 时，如果多个 css 属性只有一个改变了，那么 React 只更新改、变的。这属于更加局部的优化，性能更好。
+<img src="/diff3-style%E5%B1%9E%E6%80%A7%E6%9B%B4%E5%B1%80%E9%83%A8%E7%9A%84%E4%BC%98%E5%8C%96.png" alt="diff2"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>b. 然后，同时遍历两棵树的子节点，每个节点的对比过程同上，不过存在如下两种情况。</p>
+<ul>
+<li>情况一</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">ul</span>&gt;
+  &lt;<span style="color:#f92672">li</span>&gt;A&lt;/<span style="color:#f92672">li</span>&gt;
+  &lt;<span style="color:#f92672">li</span>&gt;B&lt;/<span style="color:#f92672">li</span>&gt;
+&lt;/<span style="color:#f92672">ul</span>&gt;
+&lt;<span style="color:#f92672">ul</span>&gt;
+  &lt;<span style="color:#f92672">li</span>&gt;A&lt;/<span style="color:#f92672">li</span>&gt;
+  &lt;<span style="color:#f92672">li</span>&gt;B&lt;/<span style="color:#f92672">li</span>&gt;
+  &lt;<span style="color:#f92672">li</span>&gt;C&lt;/<span style="color:#f92672">li</span>&gt;
+&lt;/<span style="color:#f92672">ul</span>&gt;
+</code></pre></div><p>React 依次对比 A-A、B-B、空-C，发现 C 是新增的，最终会创建真实 C 节点插入页面</p>
+<ul>
+<li>情况二</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">ul</span>&gt;
+  &lt;<span style="color:#f92672">li</span>&gt;B&lt;/<span style="color:#f92672">li</span>&gt;
+  &lt;<span style="color:#f92672">li</span>&gt;C&lt;/<span style="color:#f92672">li</span>&gt;
+&lt;/<span style="color:#f92672">ul</span>&gt;
+&lt;<span style="color:#f92672">ul</span>&gt;
+  &lt;<span style="color:#f92672">li</span>&gt;A&lt;/<span style="color:#f92672">li</span>&gt;
+  &lt;<span style="color:#f92672">li</span>&gt;B&lt;/<span style="color:#f92672">li</span>&gt;
+  &lt;<span style="color:#f92672">li</span>&gt;C&lt;/<span style="color:#f92672">li</span>&gt;
+&lt;/<span style="color:#f92672">ul</span>&gt;
+</code></pre></div><p>React 对比 B-A，会删除 B 文本新建 A 文本；对比 C-B，会删除 C 文本，新建 B
+文本；（注意，并不是边对比边删除新建，而是把操作汇总到 patch 里再进行
+DOM 操作。）对比空-C，会新建 C 文本。
+你会发现其实只需要创建 A 文本，保留 B 和 C 即可，为什么 React 做不到呢？</p>
+<p>因为 React 需要你加 key 才能做到：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">ul</span>&gt;
+  &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">key</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;b&#34;</span>&gt;B&lt;/<span style="color:#f92672">li</span>&gt;
+  &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">key</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;c&#34;</span>&gt;C&lt;/<span style="color:#f92672">li</span>&gt;
+&lt;/<span style="color:#f92672">ul</span>&gt;
+&lt;<span style="color:#f92672">ul</span>&gt;
+  &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">key</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;a&#34;</span>&gt;A&lt;/<span style="color:#f92672">li</span>&gt;
+  &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">key</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;b&#34;</span>&gt;B&lt;/<span style="color:#f92672">li</span>&gt;
+  &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">key</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;c&#34;</span>&gt;C&lt;/<span style="color:#f92672">li</span>&gt;
+&lt;/<span style="color:#f92672">ul</span>&gt;
+</code></pre></div><p>React 先对比 key 发现 key 只新增了一个，于是保留 b 和 c，新建 a。 以上是 React 官方文档的内容，但是面食馆想听的可能是源码分析之-双端交叉对比。</p>
+<ul>
+<li>参考资料，<a href="https://canyuegongzi.github.io/web/vue/3.html#%E5%85%B7%E4%BD%93%E7%9A%84diff%E5%88%86%E6%9E%90">具体的diff分析</a></li>
+<li>数组存储的是拥有相同爸爸的一群子节点
+<img src="/diff3-style%E5%B1%9E%E6%80%A7%E6%9B%B4%E5%B1%80%E9%83%A8%E7%9A%84%E4%BC%98%E5%8C%96.png" alt="对比过程">
+每一轮都是一样的顺序，每次都有四个指针指向旧数组的头尾，和新数组的头尾，然后开始对比。</li>
+<li><a href="https://juejin.cn/post/6971622260490797069">参考资料2</a></li>
+</ul>
+<h3 id="3-补充react-dom-diff-和-vue-dom-diff-的区别-1">3. 补充：React DOM diff 和 Vue DOM diff 的区别？</h3>
+<p>面试回答第一和第三句话。</p>
+<ol>
+<li>React 是从左向右遍历对比，Vue 是双端交叉对比。</li>
+<li>React 至少需要维护三个变量（有点扯，我看源代码是五个变量），Vue 则至少需要维护四个变量。</li>
+<li>Vue 整体效率比 React 更高，举例说明：假设有 N 个子节点，我们只是把最后子
+节点移到第一个，那么
+a. React 需要进行借助 Map 进行 key 搜索找到匹配项，然后复用节点
+b. Vue 会发现移动，直接复用节点</li>
+</ol>
+<p>附 React DOM diff 代码查看流程：</p>
+<ol>
+<li>运行 git clone <a href="https://github.com/facebook/react.git">https://github.com/facebook/react.git</a></li>
+<li>运行 cd react; git switch 17.0.2</li>
+<li>用 VSCode 或 WebStorm 打开 react 目录</li>
+<li>打开 packages/react-reconciler/src/ReactChildFiber.old.js 第 1274 行查看旧版代码，或打开 packages/react-reconciler/src/ReactChildFiber.new.js 第1267行查看新代码（实际上一样），里面的reconcileChildrenArray方法用于对比子节点是数组的情况，就是diff</li>
+<li>忽略所有警告和报错，因为 React JS 代码中有不是 JS 的代码</li>
+<li>折叠所有代码</li>
+<li>根据 React 文档中给出的场景反复在大脑中运行代码
+a. 场景0：单个节点，会运行到 reconcileSingleElement。接下来看多个节点的情况。
+b. 场景1：没 key，标签名变了，最终会走createFiberFromElement（存疑）
+c. 场景2：没 key，标签名没变，但是属性变了，最终走到 updateElement 里的useFiber
+d. 场景3：有 key，key 的顺序没变，最终走到 updateElement
+e. 场景4：有 key，key 的顺序变了，updateSlot 返回 null，最终走到mapRemainingChildren、updateFromMap 和 updateElement(matchedFiber)，整个过程较长，效率较低</li>
+<li>代码查看要点：
+a. 声明不看（用到再看）
+b. if 先不看（但 if else 要看）
+c. 函数调用必看</li>
+<li>必备快捷键：折叠所有、展开、向前、向后、查看定义、折叠所有代码</li>
+</ol>
+<p>根据 React 文档中给出的场景反复在大脑中运行代码</p>
+<h3 id="4react-有哪些生命周期钩子函数数据请求放在哪个钩子里-1">4.React 有哪些生命周期钩子函数？数据请求放在哪个钩子里？</h3>
+<p>React 的文档稍微有点乱，需要配合两个地方一起看才能记忆清楚：</p>
+<p><a href="https://reactjs.org/docs/react-component.html#the-component-lifecycle">文档一,挂载阶段</a></p>
+<p><a href="https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/">文档二，生命周期图标</a></p>
+<p>函数组件是没有生命周期的只能模拟生命周期，
+挂载的时候有四个钩子，constructor, getDerivedStateFromProps, render,和componentDidMount说明节点已经在真实的dom
+更新的时候，有三种更新方式，第一个钩子getDerivedStateFromProps，然后是shouldComponentUpdate, render, getSnapshotBeforeUpdate，componentDidUpdate。其实只要记两个。getDerivedStateFromProps和render, 推理constructor是第一次挂载，之后获取参数getDerivedStateFromProps。render 前后有两个，是否更新shouldComponentUpdate和更新后快照getSnapshotBeforeUpdate，更新之后componentDidUpdate</p>
+<p>总结:</p>
+<ol>
+<li>挂载时调用 constructor，更新时不调用</li>
+<li>更新时调用 shouldComponentUpdate 和 getSnapshotBeforeUpdate，挂载时不调用</li>
+<li>should&hellip; 在 render 前调用，getSnapshot&hellip; 在 render 后调用</li>
+<li>为什么请求放在 componentDidMount 里，因为如果是ssr，后台会运行constructor,服务器端拿不到数据，写了白写。 getDerivedStateFromProps会调用很多词，只要是更新的时候都不行，更新就触发。</li>
+</ol>
+<h3 id="5react-如何实现组件间通信-1">5.React 如何实现组件间通信?</h3>
+<p>父子组件通信：props + 函数
+爷孙组件通信：两层父子通信或者使用 Context.Provider 和 Context.Consumer
+任意组件通信：其实就变成了状态管理了</p>
+<ul>
+<li>Redux，dva基于redux</li>
+<li>Mobx，react抄袭vue响应式的思想</li>
+<li>Recoil，局部状态管理，react的团队实现的</li>
+</ul>
+<h3 id="6你如何理解-redux-1">6.你如何理解 Redux？</h3>
+<ol>
+<li>文档第一句话背下来：Redux 是一个状态管理库/状态容器。</li>
+<li>把 Redux 的核心概念说一下：</li>
+</ol>
+<ul>
+<li>State，放状态</li>
+<li>Action = type + payload 荷载，荷载就是数据，数据改变</li>
+<li>Reducer ，传一个旧的state,产生一个新的state</li>
+<li>Dispatch 派发，后面接一个action</li>
+<li>Middleware，举例，比如redux-thunk, saga, redux-promise</li>
+</ul>
+<p>把 ReactRedux 的核心概念说一下：</p>
+<ul>
+<li>connect()(Component)，接受两次参数，第二次参数接受component，作用把component和store关联起来</li>
+<li>mapStateToProps</li>
+<li>mapDispatchToProps
+最好的回答方式:自己写过一个简单的redux，</li>
+</ul>
+<h3 id="7-什么是高阶组件-hoc-1">7. 什么是高阶组件 HOC？</h3>
+<p>参数是组件，返回值也是组件的函数。什么都能做，所以抽象问题就具体回答。 举例说明即可：</p>
+<ol>
+<li>React.forwardRef，函数组件不支持Ref的，函数组件外面包一个forwardRef，就有一个ref了具体<a href="https://reactjs.org/docs/forwarding-refs.html">参考官方文档</a>,让你拥有一个ref</li>
+<li>ReactRedux 的 <a href="https://react-redux.js.org/api/connect">connect</a>，接受完了之后还可以再接受</li>
+</ol>
+<pre><code>connect(mapStateToProps, mapDispatchToProps, null, { context: MyContext })(
+  MyComponent
+)
+</code></pre><ol start="3">
+<li>ReactRouter 的 withRouter，最新的用useRouter，class的withRouter可以用，从props拿到history match 和 location</li>
+</ol>
+<ul>
+<li><a href="https://v5.reactrouter.com/web/api/withRouter">https://v5.reactrouter.com/web/api/withRouter</a></li>
+</ul>
+<pre><code>import React from &quot;react&quot;;
+import PropTypes from &quot;prop-types&quot;;
+import { withRouter } from &quot;react-router&quot;;
+
+// A simple component that shows the pathname of the current location
+class ShowTheLocation extends React.Component {
+  static propTypes = {
+    match: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
+  };
+
+  render() {
+    const { match, location, history } = this.props;
+
+    return &lt;div&gt;You are now at {location.pathname}&lt;/div&gt;;
+  }
+}
+
+// Create a new component that is &quot;connected&quot; (to borrow redux
+// terminology) to the router.
+const ShowTheLocationWithRouter = withRouter(ShowTheLocation);
+</code></pre><h1 id="7-react-hooks-如何模拟组件生命周期-1">7. React Hooks 如何模拟组件生命周期？</h1>
+<ol>
+<li>模拟 componentDidMount</li>
+<li>模拟 componentDidUpdate</li>
+<li>模拟 componentWillUnmount</li>
+</ol>
+<p>抛开生命周期去理解: []表示不依赖任何对象，任何变量变化它都不会变化，所以它只会在第一次执行。mount里面写return就是unmount</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useEffect</span>, <span style="color:#a6e22e">useState</span>, <span style="color:#a6e22e">useRef</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#34;./styles.css&#34;</span>;
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
+    <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">visible</span>, <span style="color:#a6e22e">setNextVisible</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#66d9ef">true</span>)
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">onClick</span> <span style="color:#f92672">=</span> () =&gt; { <span style="color:#a6e22e">setNextVisible</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">visible</span>) }
+    <span style="color:#66d9ef">return</span> (
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;App&#34;</span><span style="color:#f92672">&gt;</span>
+            <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">h1</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Hello</span> <span style="color:#a6e22e">CodeSandbox</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/h1&gt;</span>
+            {<span style="color:#a6e22e">visible</span> <span style="color:#f92672">?</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Frank</span> <span style="color:#f92672">/&gt;</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>}
+            <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">onClick</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">toggle</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt; &lt;/div&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+    );
+} 
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Frank</span>(<span style="color:#a6e22e">props</span>) {
+    <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">n</span>, <span style="color:#a6e22e">setNextN</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>)
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">first</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useRef</span>(<span style="color:#66d9ef">true</span>)
+    <span style="color:#a6e22e">useEffect</span>(() =&gt; {
         <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">first</span>.<span style="color:#a6e22e">current</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">true</span>) { <span style="color:#66d9ef">return</span> }
         <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;did update&#39;</span>)
     })
@@ -498,7 +824,26 @@ const ShowTheLocationWithRouter = withRouter(ShowTheLocation);
         <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
     )
 }
-</code></pre></div><ul class="pa0">
+</code></pre></div><p>t === true) { return }
+console.log(&lsquo;did update&rsquo;)
+})
+useEffect(() =&gt; {
+console.log(&lsquo;did mount&rsquo;)
+first.current = false
+return () =&gt; {
+console.log(&lsquo;did unmount&rsquo;)
+}
+}, [])
+const onClick = () =&gt; {
+setNextN(n + 1)
+}
+return (
+<!-- raw HTML omitted -->Frank
+<!-- raw HTML omitted -->+1<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+)
+}</p>
+<pre><code></code></pre><ul class="pa0">
   
 </ul>
 <div class="mt6 instapaper_ignoref">
