@@ -6,7 +6,8 @@
     
     <title>React面试相关 | Ories的博客</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="1. 什么是虚拟dom  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205     1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点: 会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
+    <meta name="description" content="1. 什么是虚拟dom  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205    1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点:
+&lt;div id=&quot;x&quot;&gt; &lt;span class=&quot;red&quot;&gt;hi&lt;/span&gt;	&lt;/div&gt;	会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
 { tag: &#39;div&#39;, props: { id: &#39;x&#39; }, children: [ { tag: &#39;span&#39;, props: { className: &#39;red&#39; }, children: [ &#39;hi&#39; ], } ] } 为什么写这么个标签能变成这样一个对象，这是因为JSX的语法。能做到这一点是因为JSX语法会被转译为createElement函数调用(也叫h函数)，如下:
 React.createElement(&#34;div&#34;,{ id:&#34;x&#34;}, React.createElement(&#34;span&#34;,{ class: &#34;red&#34; },&#34;hi&#34;) ) 第二步是将虚拟节点渲染为真实节点， 参考:https://juejin.cn/post/6844903870229905422
 function render(vdom) { // 如果是字符串或者数字，创建一个文本节点  if (typeof vdom === &#39;string&#39; || typeof vdom === &#39;number&#39;) { return document.">
@@ -30,7 +31,8 @@ function render(vdom) { // 如果是字符串或者数字，创建一个文本�
     
     
     <meta property="og:title" content="React面试相关" />
-<meta property="og:description" content="1. 什么是虚拟dom  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205     1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点: 会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
+<meta property="og:description" content="1. 什么是虚拟dom  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205    1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点:
+&lt;div id=&quot;x&quot;&gt; &lt;span class=&quot;red&quot;&gt;hi&lt;/span&gt;	&lt;/div&gt;	会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
 { tag: &#39;div&#39;, props: { id: &#39;x&#39; }, children: [ { tag: &#39;span&#39;, props: { className: &#39;red&#39; }, children: [ &#39;hi&#39; ], } ] } 为什么写这么个标签能变成这样一个对象，这是因为JSX的语法。能做到这一点是因为JSX语法会被转译为createElement函数调用(也叫h函数)，如下:
 React.createElement(&#34;div&#34;,{ id:&#34;x&#34;}, React.createElement(&#34;span&#34;,{ class: &#34;red&#34; },&#34;hi&#34;) ) 第二步是将虚拟节点渲染为真实节点， 参考:https://juejin.cn/post/6844903870229905422
 function render(vdom) { // 如果是字符串或者数字，创建一个文本节点  if (typeof vdom === &#39;string&#39; || typeof vdom === &#39;number&#39;) { return document." />
@@ -39,20 +41,22 @@ function render(vdom) { // 如果是字符串或者数字，创建一个文本�
 <meta property="article:published_time" content="2022-10-24T15:11:03+08:00" />
 <meta property="article:modified_time" content="2022-10-24T15:11:03+08:00" />
 <meta itemprop="name" content="React面试相关">
-<meta itemprop="description" content="1. 什么是虚拟dom  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205     1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点: 会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
+<meta itemprop="description" content="1. 什么是虚拟dom  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205    1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点:
+&lt;div id=&quot;x&quot;&gt; &lt;span class=&quot;red&quot;&gt;hi&lt;/span&gt;	&lt;/div&gt;	会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
 { tag: &#39;div&#39;, props: { id: &#39;x&#39; }, children: [ { tag: &#39;span&#39;, props: { className: &#39;red&#39; }, children: [ &#39;hi&#39; ], } ] } 为什么写这么个标签能变成这样一个对象，这是因为JSX的语法。能做到这一点是因为JSX语法会被转译为createElement函数调用(也叫h函数)，如下:
 React.createElement(&#34;div&#34;,{ id:&#34;x&#34;}, React.createElement(&#34;span&#34;,{ class: &#34;red&#34; },&#34;hi&#34;) ) 第二步是将虚拟节点渲染为真实节点， 参考:https://juejin.cn/post/6844903870229905422
 function render(vdom) { // 如果是字符串或者数字，创建一个文本节点  if (typeof vdom === &#39;string&#39; || typeof vdom === &#39;number&#39;) { return document.">
 <meta itemprop="datePublished" content="2022-10-24T15:11:03+08:00" />
 <meta itemprop="dateModified" content="2022-10-24T15:11:03+08:00" />
-<meta itemprop="wordCount" content="720">
+<meta itemprop="wordCount" content="725">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="React面试相关"/>
-<meta name="twitter:description" content="1. 什么是虚拟dom  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205     1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点: 会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
+<meta name="twitter:description" content="1. 什么是虚拟dom  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205    1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点:
+&lt;div id=&quot;x&quot;&gt; &lt;span class=&quot;red&quot;&gt;hi&lt;/span&gt;	&lt;/div&gt;	会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
 { tag: &#39;div&#39;, props: { id: &#39;x&#39; }, children: [ { tag: &#39;span&#39;, props: { className: &#39;red&#39; }, children: [ &#39;hi&#39; ], } ] } 为什么写这么个标签能变成这样一个对象，这是因为JSX的语法。能做到这一点是因为JSX语法会被转译为createElement函数调用(也叫h函数)，如下:
 React.createElement(&#34;div&#34;,{ id:&#34;x&#34;}, React.createElement(&#34;span&#34;,{ class: &#34;red&#34; },&#34;hi&#34;) ) 第二步是将虚拟节点渲染为真实节点， 参考:https://juejin.cn/post/6844903870229905422
 function render(vdom) { // 如果是字符串或者数字，创建一个文本节点  if (typeof vdom === &#39;string&#39; || typeof vdom === &#39;number&#39;) { return document."/>
@@ -163,16 +167,16 @@ function render(vdom) { // 如果是字符串或者数字，创建一个文本�
 </ul>
 </li>
 </ul>
-<pre><code>
-1.是什么
+<p>1.是什么
 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲
 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。
 2.怎么做
 第一步是模拟
-用JSX语法写出来的div其实就是一个虚拟节点:
-
-</code></pre><!-- raw HTML omitted -->
-<p>会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本</p>
+用JSX语法写出来的div其实就是一个虚拟节点:</p>
+<pre><code>&lt;div id=&quot;x&quot;&gt;
+  &lt;span class=&quot;red&quot;&gt;hi&lt;/span&gt;	
+&lt;/div&gt;	
+</code></pre><p>会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
   <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;div&#39;</span>,
   <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;x&#39;</span> },
