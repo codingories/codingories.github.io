@@ -6,14 +6,26 @@
     <description>Recent content in Posts on Ories的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Thu, 20 Oct 2022 10:36:47 +0800</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Oct 2022 15:11:03 +0800</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>React面试相关</title>
+      <link>http://example.org/posts/react%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/</link>
+      <pubDate>Mon, 24 Oct 2022 15:11:03 +0800</pubDate>
+      
+      <guid>http://example.org/posts/react%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/</guid>
+      <description>1. 什么是虚拟dom  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205     1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点: 会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
+{ tag: &amp;#39;div&amp;#39;, props: { id: &amp;#39;x&amp;#39; }, children: [ { tag: &amp;#39;span&amp;#39;, props: { className: &amp;#39;red&amp;#39; }, children: [ &amp;#39;hi&amp;#39; ], } ] } 为什么写这么个标签能变成这样一个对象，这是因为JSX的语法。能做到这一点是因为JSX语法会被转译为createElement函数调用(也叫h函数)，如下:
+React.createElement(&amp;#34;div&amp;#34;,{ id:&amp;#34;x&amp;#34;}, React.createElement(&amp;#34;span&amp;#34;,{ class: &amp;#34;red&amp;#34; },&amp;#34;hi&amp;#34;) ) 第二步是将虚拟节点渲染为真实节点， 参考:https://juejin.cn/post/6844903870229905422
+function render(vdom) { // 如果是字符串或者数字，创建一个文本节点  if (typeof vdom === &amp;#39;string&amp;#39; || typeof vdom === &amp;#39;number&amp;#39;) { return document.</description>
+    </item>
+    
     <item>
       <title>前端面试题</title>
       <link>http://example.org/posts/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
       <pubDate>Thu, 20 Oct 2022 10:36:47 +0800</pubDate>
       
       <guid>http://example.org/posts/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
-      <description>React相关  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205     1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点: 会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
+      <description>1. 什么是虚拟dom  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205     1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点: 会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
 { tag: &amp;#39;div&amp;#39;, props: { id: &amp;#39;x&amp;#39; }, children: [ { tag: &amp;#39;span&amp;#39;, props: { className: &amp;#39;red&amp;#39; }, children: [ &amp;#39;hi&amp;#39; ], } ] } 为什么写这么个标签能变成这样一个对象，这是因为JSX的语法。能做到这一点是因为JSX语法会被转译为createElement函数调用(也叫h函数)，如下:
 React.createElement(&amp;#34;div&amp;#34;,{ id:&amp;#34;x&amp;#34;}, React.createElement(&amp;#34;span&amp;#34;,{ class: &amp;#34;red&amp;#34; },&amp;#34;hi&amp;#34;) ) 第二步是将虚拟节点渲染为真实节点， 参考:https://juejin.cn/post/6844903870229905422
 function render(vdom) { // 如果是字符串或者数字，创建一个文本节点  if (typeof vdom === &amp;#39;string&amp;#39; || typeof vdom === &amp;#39;number&amp;#39;) { return document.</description>

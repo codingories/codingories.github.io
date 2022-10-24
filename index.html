@@ -35,7 +35,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://example.org/" />
-<meta property="og:updated_time" content="2022-10-20T10:36:47+08:00" />
+<meta property="og:updated_time" content="2022-10-24T15:11:03+08:00" />
 <meta itemprop="name" content="Ories的博客">
 <meta itemprop="description" content="">
 <meta name="twitter:card" content="summary"/>
@@ -129,12 +129,39 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/posts/react%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/" class="color-inherit dim link">
+            React面试相关
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          1. 什么是虚拟dom  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205     1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点: 会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
+{ tag: &#39;div&#39;, props: { id: &#39;x&#39; }, children: [ { tag: &#39;span&#39;, props: { className: &#39;red&#39; }, children: [ &#39;hi&#39; ], } ] } 为什么写这么个标签能变成这样一个对象，这是因为JSX的语法。能做到这一点是因为JSX语法会被转译为createElement函数调用(也叫h函数)，如下:
+React.createElement(&#34;div&#34;,{ id:&#34;x&#34;}, React.createElement(&#34;span&#34;,{ class: &#34;red&#34; },&#34;hi&#34;) ) 第二步是将虚拟节点渲染为真实节点， 参考:https://juejin.cn/post/6844903870229905422
+function render(vdom) { // 如果是字符串或者数字，创建一个文本节点  if (typeof vdom === &#39;string&#39; || typeof vdom === &#39;number&#39;) { return document.
+        </div>
+          <a href="/posts/react%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="/posts/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" class="color-inherit dim link">
             前端面试题
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          React相关  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205     1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点: 会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
+          1. 什么是虚拟dom  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205     1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点: 会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
 { tag: &#39;div&#39;, props: { id: &#39;x&#39; }, children: [ { tag: &#39;span&#39;, props: { className: &#39;red&#39; }, children: [ &#39;hi&#39; ], } ] } 为什么写这么个标签能变成这样一个对象，这是因为JSX的语法。能做到这一点是因为JSX语法会被转译为createElement函数调用(也叫h函数)，如下:
 React.createElement(&#34;div&#34;,{ id:&#34;x&#34;}, React.createElement(&#34;span&#34;,{ class: &#34;red&#34; },&#34;hi&#34;) ) 第二步是将虚拟节点渲染为真实节点， 参考:https://juejin.cn/post/6844903870229905422
 function render(vdom) { // 如果是字符串或者数字，创建一个文本节点  if (typeof vdom === &#39;string&#39; || typeof vdom === &#39;number&#39;) { return document.
@@ -172,37 +199,18 @@ function render(vdom) { // 如果是字符串或者数字，创建一个文本�
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/posts/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="color-inherit dim link">
-            如何用hugo搭建个人博客
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          今天分享一下mac电脑上如何搭建一个hugo个人博客。
-安装hugo brew install hugo  验证hugo安装成功  hugo version 参考hugo的文档  hugo官网 改成自己的站点名字  hugo new site codingories.github.io-creator  安装主题  cd quickstart git init git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke echo theme = \&quot;ananke\&quot; &gt;&gt; config.toml  创建博客，这边需要注意要加md  hugo new posts/我的第一篇博客.md  运行网站服务器  hugo server -D  编辑自定义主题config.toml  baseURL = &quot;https://example.org/&quot; languageCode = &quot;en-us&quot; title = &quot;My New Hugo Site&quot; theme = &quot;ananke&quot;  生成静态页面  hugo -D 将public提交到github仓库  参考github静态页面教程，进行部署和配置域名等操作  
-        </div>
-          <a href="/posts/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/posts/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="link black dim">
+              如何用hugo搭建个人博客
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="/posts/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/" class="link black dim">
