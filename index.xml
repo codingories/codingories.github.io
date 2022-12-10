@@ -6,13 +6,13 @@
     <description>Recent content on Ories的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Sat, 10 Dec 2022 18:48:31 +0800</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Dec 2022 18:57:40 +0800</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Learn Solidity Array</title>
-      <link>http://example.org/posts/learn-solidity-array/</link>
-      <pubDate>Sat, 10 Dec 2022 18:48:31 +0800</pubDate>
+      <title>Learn Solidity0 Array</title>
+      <link>http://example.org/posts/learn-solidity0-array/</link>
+      <pubDate>Sat, 10 Dec 2022 18:57:40 +0800</pubDate>
       
-      <guid>http://example.org/posts/learn-solidity-array/</guid>
+      <guid>http://example.org/posts/learn-solidity0-array/</guid>
       <description> 相关代码，总体和js数组很相似  // SPDX-License-Identifier: MIT pragma solidity &amp;gt;= 0.7.0 &amp;lt; 0.9.0; contract learnArrays { uint[] public myArray; uint[] public myArray2; uint[200] public myFixedSizedArray; function push(uint number) public { myArray.push(number); } function pop() public { myArray.pop(); } function getLength() public view returns (uint) { return myArray.length; } function remove(uint i) public { // 当你删掉的时候array的长度没变 [1,2,3]，remove[2]-&amp;gt; [1,2,0]  delete myArray[i]; } } </description>
     </item>
     
