@@ -35,7 +35,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://example.org/" />
-<meta property="og:updated_time" content="2022-12-10T19:00:36+08:00" />
+<meta property="og:updated_time" content="2022-12-11T15:38:45+08:00" />
 <meta itemprop="name" content="Ories的博客">
 <meta itemprop="description" content="">
 <meta name="twitter:card" content="summary"/>
@@ -129,14 +129,15 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/posts/learn-solidity-0-array/" class="color-inherit dim link">
-            Learn Solidity 0 Array
+          <a href="/posts/learn-solidity-3-mapping/" class="color-inherit dim link">
+            Learn Solidity 3 Mapping
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-           相关代码，总体和js数组很相似  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract learnArrays { uint[] public myArray; uint[] public myArray2; uint[200] public myFixedSizedArray; function push(uint number) public { myArray.push(number); } function pop() public { myArray.pop(); } function getLength() public view returns (uint) { return myArray.length; } function remove(uint i) public { // 当你删掉的时候array的长度没变 [1,2,3]，remove[2]-&gt; [1,2,0]  delete myArray[i]; } }
+          这里的map可以理解成js，或者python的map。
+ 代码例子  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; // 如果map没有值返回0 contract learnMapping { mapping(address =&gt; uint) public myMap; function getAddress(address _addr) public view returns(uint) { return myMap[_addr]; } function setAddress(address _addr, uint _i) public { myMap[_addr] = _i; } function removeAddress(address _addr) public { delete myMap[_addr]; } }  练习  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract learnMapping { struct Movie { string title; string director; } mapping(uint =&gt; Movie) movie; function addMovie(uint id, string memory title, string memory director) public { movie[id] = Movie(title, director); } }  嵌套映射例子  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.
         </div>
-          <a href="/posts/learn-solidity-0-array/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+          <a href="/posts/learn-solidity-3-mapping/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
       </div>
     </div>
@@ -153,22 +154,14 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/posts/%E5%B7%A5%E7%A8%8B%E5%8C%96%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/" class="color-inherit dim link">
-            工程化面试相关
+          <a href="/posts/learn-solidity-2-structs/" class="color-inherit dim link">
+            Learn Solidity 2 Structs
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          别人写的blog 1. 常见 loader 和 plugin 有哪些？二者区别是什么？   常见 loader 在 webpack 文档里写了：传送门
-  必须记住的一些loader
-    babel-loader 把 JS/TS 变成 JS
-  ts-loader 把 TS 变成 JS，并提示类型错误 md相关
-  markdown-loader 把 markdown 变成 html
-  html-loader 把 html 变成 JS 字符串 css 相关
-  sass-loader 把 SASS/SCSS 变成 CSS
-  css-loader 把 CSS 变成 JS 字符串
-  style-loader 把 JS 字符串变成 style 标签
+          用于定义自己的数据结构，有点像ts中的类型  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract learnStructs { struct Movie { string title; string director; uint movie_id; } Movie movie; function setMovie() public { movie = Movie(&#39;Blade Runnder&#39;, &#39; Ridley Scott&#39;, 1); } function getMovieId() public view returns(uint) { return movie.movie_id; } }  练习  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract learnStructs { struct Movie { string title; string director; uint movie_id; } Movie movie; Movie comedy; function setMovie() public { // movie = Movie(&#39;Blade Runnder&#39;, &#39; Ridley Scott&#39;, 1);  // movie = Movie(&#39;Escaoe From New York&#39;, &#39;John Carpenter&#39;, 3);  comedy = Movie(&#39;Zoolander&#39;, &#39;Ben Stiller&#39;, 4); } function getMovieId() public view returns(uint) { // return movie.
         </div>
-          <a href="/posts/%E5%B7%A5%E7%A8%8B%E5%8C%96%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+          <a href="/posts/learn-solidity-2-structs/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
       </div>
     </div>
@@ -185,18 +178,14 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/posts/react%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/" class="color-inherit dim link">
-            React面试相关
+          <a href="/posts/learn-solidity-1-enum/" class="color-inherit dim link">
+            Learn Solidity 1 Enum
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          1. 什么是虚拟dom  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205    1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点:
-&lt;div id=&quot;x&quot;&gt; &lt;span class=&quot;red&quot;&gt;hi&lt;/span&gt;	&lt;/div&gt;	会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
-{ tag: &#39;div&#39;, props: { id: &#39;x&#39; }, children: [ { tag: &#39;span&#39;, props: { className: &#39;red&#39; }, children: [ &#39;hi&#39; ], } ] } 为什么写这么个标签能变成这样一个对象，这是因为JSX的语法。能做到这一点是因为JSX语法会被转译为createElement函数调用(也叫h函数)，如下:
-React.createElement(&#34;div&#34;,{ id:&#34;x&#34;}, React.createElement(&#34;span&#34;,{ class: &#34;red&#34; },&#34;hi&#34;) ) 第二步是将虚拟节点渲染为真实节点， 参考:https://juejin.cn/post/6844903870229905422
-function render(vdom) { // 如果是字符串或者数字，创建一个文本节点  if (typeof vdom === &#39;string&#39; || typeof vdom === &#39;number&#39;) { return document.
+          简单可以理解成ts中的枚举值  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract enumsLearn { enum frenchFriesSize {LARGE, MEDIUM, SMALL} // 默认是第一个  frenchFriesSize choice; frenchFriesSize constant defaultChoice = frenchFriesSize.MEDIUM; function setSmall() public { choice = frenchFriesSize.SMALL; } function getChoice() public view returns(frenchFriesSize) { return choice; } function getDefaultChoice() public pure returns (uint) { return uint(defaultChoice); } }  练习  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract enumsLearn { enum shirtColor {RED, WHITE, BLUE} shirtColor choice; shirtColor constant defaultChoice = shirtColor.
         </div>
-          <a href="/posts/react%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+          <a href="/posts/learn-solidity-1-enum/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
       </div>
     </div>
@@ -213,20 +202,26 @@ function render(vdom) { // 如果是字符串或者数字，创建一个文本�
         
         
           <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/posts/learn-solidity-0-array/" class="link black dim">
+              Learn Solidity 0 Array
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/posts/%E5%B7%A5%E7%A8%8B%E5%8C%96%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/" class="link black dim">
+              工程化面试相关
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/posts/react%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/" class="link black dim">
+              React面试相关
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
             <a href="/posts/screeps%E8%AE%B0%E5%BD%95%E4%B8%80/" class="link black dim">
               Screeps记录一
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="/posts/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="link black dim">
-              如何用hugo搭建个人博客
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="/posts/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/" class="link black dim">
-              开博大吉
             </a>
           </h2>
         

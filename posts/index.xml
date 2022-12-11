@@ -6,14 +6,42 @@
     <description>Recent content in Posts on Ories的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Sat, 10 Dec 2022 19:00:36 +0800</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Dec 2022 15:38:45 +0800</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learn Solidity 3 Mapping</title>
+      <link>http://example.org/posts/learn-solidity-3-mapping/</link>
+      <pubDate>Sun, 11 Dec 2022 15:38:45 +0800</pubDate>
+      
+      <guid>http://example.org/posts/learn-solidity-3-mapping/</guid>
+      <description>这里的map可以理解成js，或者python的map。
+ 代码例子  // SPDX-License-Identifier: MIT pragma solidity &amp;gt;= 0.7.0 &amp;lt; 0.9.0; // 如果map没有值返回0 contract learnMapping { mapping(address =&amp;gt; uint) public myMap; function getAddress(address _addr) public view returns(uint) { return myMap[_addr]; } function setAddress(address _addr, uint _i) public { myMap[_addr] = _i; } function removeAddress(address _addr) public { delete myMap[_addr]; } }  练习  // SPDX-License-Identifier: MIT pragma solidity &amp;gt;= 0.7.0 &amp;lt; 0.9.0; contract learnMapping { struct Movie { string title; string director; } mapping(uint =&amp;gt; Movie) movie; function addMovie(uint id, string memory title, string memory director) public { movie[id] = Movie(title, director); } }  嵌套映射例子  // SPDX-License-Identifier: MIT pragma solidity &amp;gt;= 0.</description>
+    </item>
+    
+    <item>
+      <title>Learn Solidity 2 Structs</title>
+      <link>http://example.org/posts/learn-solidity-2-structs/</link>
+      <pubDate>Sun, 11 Dec 2022 13:36:41 +0800</pubDate>
+      
+      <guid>http://example.org/posts/learn-solidity-2-structs/</guid>
+      <description>用于定义自己的数据结构，有点像ts中的类型  // SPDX-License-Identifier: MIT pragma solidity &amp;gt;= 0.7.0 &amp;lt; 0.9.0; contract learnStructs { struct Movie { string title; string director; uint movie_id; } Movie movie; function setMovie() public { movie = Movie(&amp;#39;Blade Runnder&amp;#39;, &amp;#39; Ridley Scott&amp;#39;, 1); } function getMovieId() public view returns(uint) { return movie.movie_id; } }  练习  // SPDX-License-Identifier: MIT pragma solidity &amp;gt;= 0.7.0 &amp;lt; 0.9.0; contract learnStructs { struct Movie { string title; string director; uint movie_id; } Movie movie; Movie comedy; function setMovie() public { // movie = Movie(&amp;#39;Blade Runnder&amp;#39;, &amp;#39; Ridley Scott&amp;#39;, 1);  // movie = Movie(&amp;#39;Escaoe From New York&amp;#39;, &amp;#39;John Carpenter&amp;#39;, 3);  comedy = Movie(&amp;#39;Zoolander&amp;#39;, &amp;#39;Ben Stiller&amp;#39;, 4); } function getMovieId() public view returns(uint) { // return movie.</description>
+    </item>
+    
+    <item>
+      <title>Learn Solidity 1 Enum</title>
+      <link>http://example.org/posts/learn-solidity-1-enum/</link>
+      <pubDate>Sun, 11 Dec 2022 13:12:28 +0800</pubDate>
+      
+      <guid>http://example.org/posts/learn-solidity-1-enum/</guid>
+      <description>简单可以理解成ts中的枚举值  // SPDX-License-Identifier: MIT pragma solidity &amp;gt;= 0.7.0 &amp;lt; 0.9.0; contract enumsLearn { enum frenchFriesSize {LARGE, MEDIUM, SMALL} // 默认是第一个  frenchFriesSize choice; frenchFriesSize constant defaultChoice = frenchFriesSize.MEDIUM; function setSmall() public { choice = frenchFriesSize.SMALL; } function getChoice() public view returns(frenchFriesSize) { return choice; } function getDefaultChoice() public pure returns (uint) { return uint(defaultChoice); } }  练习  // SPDX-License-Identifier: MIT pragma solidity &amp;gt;= 0.7.0 &amp;lt; 0.9.0; contract enumsLearn { enum shirtColor {RED, WHITE, BLUE} shirtColor choice; shirtColor constant defaultChoice = shirtColor.</description>
+    </item>
+    
     <item>
       <title>Learn Solidity 0 Array</title>
       <link>http://example.org/posts/learn-solidity-0-array/</link>
       <pubDate>Sat, 10 Dec 2022 19:00:36 +0800</pubDate>
       
       <guid>http://example.org/posts/learn-solidity-0-array/</guid>
-      <description> 相关代码，总体和js数组很相似  // SPDX-License-Identifier: MIT pragma solidity &amp;gt;= 0.7.0 &amp;lt; 0.9.0; contract learnArrays { uint[] public myArray; uint[] public myArray2; uint[200] public myFixedSizedArray; function push(uint number) public { myArray.push(number); } function pop() public { myArray.pop(); } function getLength() public view returns (uint) { return myArray.length; } function remove(uint i) public { // 当你删掉的时候array的长度没变 [1,2,3]，remove[2]-&amp;gt; [1,2,0]  delete myArray[i]; } }</description>
+      <description>相关代码，总体和js数组很相似  // SPDX-License-Identifier: MIT pragma solidity &amp;gt;= 0.7.0 &amp;lt; 0.9.0; contract learnArrays { uint[] public myArray; uint[] public myArray2; uint[200] public myFixedSizedArray; function push(uint number) public { myArray.push(number); } function pop() public { myArray.pop(); } function getLength() public view returns (uint) { return myArray.length; } function remove(uint i) public { // 当你删掉的时候array的长度没变 [1,2,3]，remove[2]-&amp;gt; [1,2,0]  delete myArray[i]; } // 练习  uint[] public changeArray; function removeElement(uint i) public { changeArray[i] = changeArray[changeArray.</description>
     </item>
     
     <item>
@@ -53,16 +81,6 @@ function render(vdom) { // 如果是字符串或者数字，创建一个文本�
       
       <guid>http://example.org/posts/screeps%E8%AE%B0%E5%BD%95%E4%B8%80/</guid>
       <description>教学中的命令 Game.spawns[&#39;Spawn1&#39;].spawnCreep( [WORK, CARRY, MOVE], &#39;Harvester1&#39; ); </description>
-    </item>
-    
-    <item>
-      <title>如何用hugo搭建个人博客</title>
-      <link>http://example.org/posts/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
-      <pubDate>Mon, 11 Oct 2021 21:19:38 +0800</pubDate>
-      
-      <guid>http://example.org/posts/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
-      <description>今天分享一下mac电脑上如何搭建一个hugo个人博客。
-安装hugo brew install hugo  验证hugo安装成功  hugo version 参考hugo的文档  hugo官网 改成自己的站点名字  hugo new site codingories.github.io-creator  安装主题  cd quickstart git init git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke echo theme = \&amp;quot;ananke\&amp;quot; &amp;gt;&amp;gt; config.toml  创建博客，这边需要注意要加md  hugo new posts/我的第一篇博客.md  运行网站服务器  hugo server -D  编辑自定义主题config.toml  baseURL = &amp;quot;https://example.org/&amp;quot; languageCode = &amp;quot;en-us&amp;quot; title = &amp;quot;My New Hugo Site&amp;quot; theme = &amp;quot;ananke&amp;quot;  生成静态页面  hugo -D 将public提交到github仓库  参考github静态页面教程，进行部署和配置域名等操作  </description>
     </item>
     
     <item>

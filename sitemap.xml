@@ -3,17 +3,32 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/posts/learn-solidity-0-array/</loc>
-    <lastmod>2022-12-10T19:00:36+08:00</lastmod>
+    <loc>http://example.org/posts/learn-solidity-3-mapping/</loc>
+    <lastmod>2022-12-11T15:38:45+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://example.org/</loc>
-    <lastmod>2022-12-10T19:00:36+08:00</lastmod>
+    <lastmod>2022-12-11T15:38:45+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://example.org/posts/</loc>
+    <lastmod>2022-12-11T15:38:45+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/posts/learn-solidity-2-structs/</loc>
+    <lastmod>2022-12-11T13:36:41+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/posts/learn-solidity-1-enum/</loc>
+    <lastmod>2022-12-11T13:12:28+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/posts/learn-solidity-0-array/</loc>
     <lastmod>2022-12-10T19:00:36+08:00</lastmod>
   </url>
   
@@ -30,11 +45,6 @@
   <url>
     <loc>http://example.org/posts/screeps%E8%AE%B0%E5%BD%95%E4%B8%80/</loc>
     <lastmod>2022-10-10T10:06:40+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://example.org/posts/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2021-10-11T21:19:38+08:00</lastmod>
   </url>
   
   <url>
