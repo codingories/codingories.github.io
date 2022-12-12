@@ -35,7 +35,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://example.org/posts/" />
-<meta property="og:updated_time" content="2022-12-11T15:38:45+08:00" />
+<meta property="og:updated_time" content="2022-12-12T10:49:20+08:00" />
 <meta itemprop="name" content="Posts">
 <meta itemprop="description" content="">
 <meta name="twitter:card" content="summary"/>
@@ -97,6 +97,43 @@
   <article class="pa3 pa4-ns nested-copy-line-height nested-img">
     <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
     <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8webstorm%E8%BF%9E%E6%8E%A5remix%E5%BC%80%E5%8F%91%E5%8C%BA%E5%9D%97%E9%93%BE/" class="link black dim">
+        如何使用webstorm连接remix开发区块链
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      运行命令，全局安装，注意切换源
+npm install -g @remix-project/remixd 点击run-&gt; configuration
+配置一下working directory，选到自己的工作目录 配置一下JavaScript file，选择到刚才安装的安装包 通过npm root -g可以查找到安装包的路径，由于我用了nrm进行node版本管理，我的包存放的位置在
+/Users/ories/.nvm/versions/node/v16.15.0/lib/node_modules 最终输入的值
+/Users/ories/.nvm/versions/node/v16.15.0/lib/node_modules/@remix-project/remixd/src/bin/remixd.js 浏览器地址输入
+https://remix.ethereum.org/ webstorm安装下sol的插件。
+然后有两种方式启动,第一种，view -&gt; tool windows -&gt; services 第二种方式，命令行运行
+npx remixd -s . --remix-ide https://remix.ethereum.org 之后打开https://remix.ethereum.org，点击连接到localhost即可
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/learn-solidity-4-unit/" class="link black dim">
+        Learn Solidity 4 Unit
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      solidity中的单位  uint表示uint256，表示0-2^256-1 // 科学计算器地址: https://www.desmos.com/scientific?lang=zh-CN uint32 表示0-2^32-1 uint16  转换例子  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; // 从高到低 uint32 a = 0x12345678; uint16 b = uint16(a); // b = 0x5678 // 从低到高 uint16 c = 0x1234; uint32 d = uint32(c); // d = 0x00001234 // 同理 bytes2 和 bytes1 // 从高到低失去精度 bytes2 e = 0x1234; bytes1 f = bytes1(e) // f = 0x12 // 从低到高补0 bytes2 g = 0x1234; bytes4 h = bytes4(g); // h = 0x12340000  以太坊单位换算  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.
+    </div>
+  </div>
+</div>
+</div>
       
         <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
   <div class="bg-white mb3 pa4 gray overflow-hidden">

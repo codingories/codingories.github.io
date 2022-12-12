@@ -35,7 +35,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://example.org/" />
-<meta property="og:updated_time" content="2022-12-11T15:38:45+08:00" />
+<meta property="og:updated_time" content="2022-12-12T10:49:20+08:00" />
 <meta itemprop="name" content="Ories的博客">
 <meta itemprop="description" content="">
 <meta name="twitter:card" content="summary"/>
@@ -129,6 +129,61 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/posts/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8webstorm%E8%BF%9E%E6%8E%A5remix%E5%BC%80%E5%8F%91%E5%8C%BA%E5%9D%97%E9%93%BE/" class="color-inherit dim link">
+            如何使用webstorm连接remix开发区块链
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          运行命令，全局安装，注意切换源
+npm install -g @remix-project/remixd 点击run-&gt; configuration
+配置一下working directory，选到自己的工作目录 配置一下JavaScript file，选择到刚才安装的安装包 通过npm root -g可以查找到安装包的路径，由于我用了nrm进行node版本管理，我的包存放的位置在
+/Users/ories/.nvm/versions/node/v16.15.0/lib/node_modules 最终输入的值
+/Users/ories/.nvm/versions/node/v16.15.0/lib/node_modules/@remix-project/remixd/src/bin/remixd.js 浏览器地址输入
+https://remix.ethereum.org/ webstorm安装下sol的插件。
+然后有两种方式启动,第一种，view -&gt; tool windows -&gt; services 第二种方式，命令行运行
+npx remixd -s . --remix-ide https://remix.ethereum.org 之后打开https://remix.ethereum.org，点击连接到localhost即可
+        </div>
+          <a href="/posts/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8webstorm%E8%BF%9E%E6%8E%A5remix%E5%BC%80%E5%8F%91%E5%8C%BA%E5%9D%97%E9%93%BE/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/posts/learn-solidity-4-unit/" class="color-inherit dim link">
+            Learn Solidity 4 Unit
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          solidity中的单位  uint表示uint256，表示0-2^256-1 // 科学计算器地址: https://www.desmos.com/scientific?lang=zh-CN uint32 表示0-2^32-1 uint16  转换例子  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; // 从高到低 uint32 a = 0x12345678; uint16 b = uint16(a); // b = 0x5678 // 从低到高 uint16 c = 0x1234; uint32 d = uint32(c); // d = 0x00001234 // 同理 bytes2 和 bytes1 // 从高到低失去精度 bytes2 e = 0x1234; bytes1 f = bytes1(e) // f = 0x12 // 从低到高补0 bytes2 g = 0x1234; bytes4 h = bytes4(g); // h = 0x12340000  以太坊单位换算  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.
+        </div>
+          <a href="/posts/learn-solidity-4-unit/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="/posts/learn-solidity-3-mapping/" class="color-inherit dim link">
             Learn Solidity 3 Mapping
             </a>
@@ -146,60 +201,24 @@
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/posts/learn-solidity-2-structs/" class="color-inherit dim link">
-            Learn Solidity 2 Structs
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          用于定义自己的数据结构，有点像ts中的类型  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract learnStructs { struct Movie { string title; string director; uint movie_id; } Movie movie; function setMovie() public { movie = Movie(&#39;Blade Runnder&#39;, &#39; Ridley Scott&#39;, 1); } function getMovieId() public view returns(uint) { return movie.movie_id; } }  练习  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract learnStructs { struct Movie { string title; string director; uint movie_id; } Movie movie; Movie comedy; function setMovie() public { // movie = Movie(&#39;Blade Runnder&#39;, &#39; Ridley Scott&#39;, 1);  // movie = Movie(&#39;Escaoe From New York&#39;, &#39;John Carpenter&#39;, 3);  comedy = Movie(&#39;Zoolander&#39;, &#39;Ben Stiller&#39;, 4); } function getMovieId() public view returns(uint) { // return movie.
-        </div>
-          <a href="/posts/learn-solidity-2-structs/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/posts/learn-solidity-1-enum/" class="color-inherit dim link">
-            Learn Solidity 1 Enum
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          简单可以理解成ts中的枚举值  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract enumsLearn { enum frenchFriesSize {LARGE, MEDIUM, SMALL} // 默认是第一个  frenchFriesSize choice; frenchFriesSize constant defaultChoice = frenchFriesSize.MEDIUM; function setSmall() public { choice = frenchFriesSize.SMALL; } function getChoice() public view returns(frenchFriesSize) { return choice; } function getDefaultChoice() public pure returns (uint) { return uint(defaultChoice); } }  练习  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract enumsLearn { enum shirtColor {RED, WHITE, BLUE} shirtColor choice; shirtColor constant defaultChoice = shirtColor.
-        </div>
-          <a href="/posts/learn-solidity-1-enum/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/posts/learn-solidity-2-structs/" class="link black dim">
+              Learn Solidity 2 Structs
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/posts/learn-solidity-1-enum/" class="link black dim">
+              Learn Solidity 1 Enum
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="/posts/learn-solidity-0-array/" class="link black dim">
@@ -210,18 +229,6 @@
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="/posts/%E5%B7%A5%E7%A8%8B%E5%8C%96%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/" class="link black dim">
               工程化面试相关
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="/posts/react%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/" class="link black dim">
-              React面试相关
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="/posts/screeps%E8%AE%B0%E5%BD%95%E4%B8%80/" class="link black dim">
-              Screeps记录一
             </a>
           </h2>
         
