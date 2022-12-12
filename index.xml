@@ -14,8 +14,7 @@
       
       <guid>http://example.org/posts/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8webstorm%E8%BF%9E%E6%8E%A5remix%E5%BC%80%E5%8F%91%E5%8C%BA%E5%9D%97%E9%93%BE/</guid>
       <description>运行命令，全局安装，注意切换源
-npm install -g @remix-project/remixd 点击run-&amp;gt; configuration
-配置一下working directory，选到自己的工作目录 配置一下JavaScript file，选择到刚才安装的安装包 通过npm root -g可以查找到安装包的路径，由于我用了nrm进行node版本管理，我的包存放的位置在
+npm install -g @remix-project/remixd 点击run-&amp;gt; configuration 配置一下working directory，选到自己的工作目录 配置一下JavaScript file，选择到刚才安装的安装包 通过npm root -g可以查找到安装包的路径，由于我用了nrm进行node版本管理，我的包存放的位置在
 /Users/ories/.nvm/versions/node/v16.15.0/lib/node_modules 最终输入的值
 /Users/ories/.nvm/versions/node/v16.15.0/lib/node_modules/@remix-project/remixd/src/bin/remixd.js 浏览器地址输入
 https://remix.ethereum.org/ webstorm安装下sol的插件。
