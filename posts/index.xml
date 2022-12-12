@@ -6,7 +6,19 @@
     <description>Recent content in Posts on Ories的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Mon, 12 Dec 2022 10:49:20 +0800</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Dec 2022 11:40:19 +0800</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learn Solidity 5 Global Variables in Solidity</title>
+      <link>http://example.org/posts/learn-solidity-5-global-variables-in-solidity/</link>
+      <pubDate>Mon, 12 Dec 2022 11:40:19 +0800</pubDate>
+      
+      <guid>http://example.org/posts/learn-solidity-5-global-variables-in-solidity/</guid>
+      <description>全局变量有很多，这里只讨论一些常用的，全部可以参考官方文档
+  中文文档
+  两个合约交互的例子，使用公共的变量msg.sender
+  // SPDX-License-Identifier: MIT pragma solidity &amp;gt;= 0.7.0 &amp;lt; 0.9.0; contract LedgerBalance { mapping(address =&amp;gt; uint) balance; function updatesBalance(uint newBalance) public { balance[msg.sender] = newBalance; } } contract Updated { function updatesBalance() public { LedgerBalance ledgerBalance = new LedgerBalance(); ledgerBalance.updatesBalance(30); } }  一些其它的全局变量  // SPDX-License-Identifier: MIT pragma solidity &amp;gt;= 0.7.0 &amp;lt; 0.9.0; contract SimpleStorage { uint storedData; function set(uint x) public { // storedData = x; // 区块难度 // storedData = block.</description>
+    </item>
+    
     <item>
       <title>如何使用webstorm连接remix开发区块链</title>
       <link>http://example.org/posts/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8webstorm%E8%BF%9E%E6%8E%A5remix%E5%BC%80%E5%8F%91%E5%8C%BA%E5%9D%97%E9%93%BE/</link>

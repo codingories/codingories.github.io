@@ -36,7 +36,7 @@
 <meta itemprop="description" content="solidity中的单位  uint表示uint256，表示0-2^256-1 // 科学计算器地址: https://www.desmos.com/scientific?lang=zh-CN uint32 表示0-2^32-1 uint16  转换例子  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; // 从高到低 uint32 a = 0x12345678; uint16 b = uint16(a); // b = 0x5678 // 从低到高 uint16 c = 0x1234; uint32 d = uint32(c); // d = 0x00001234 // 同理 bytes2 和 bytes1 // 从高到低失去精度 bytes2 e = 0x1234; bytes1 f = bytes1(e) // f = 0x12 // 从低到高补0 bytes2 g = 0x1234; bytes4 h = bytes4(g); // h = 0x12340000  以太坊单位换算  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.">
 <meta itemprop="datePublished" content="2022-12-11T16:41:39+08:00" />
 <meta itemprop="dateModified" content="2022-12-11T16:41:39+08:00" />
-<meta itemprop="wordCount" content="116">
+<meta itemprop="wordCount" content="155">
 
 
 
@@ -179,6 +179,20 @@ uint16
 </span><span style="color:#75715e"></span>        assert(<span style="color:#ae81ff">1000000000000000000</span> <span style="color:#66d9ef">wei</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">ether</span>);
         assert(<span style="color:#ae81ff">1</span> <span style="color:#66d9ef">wei</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>);
         assert(<span style="color:#ae81ff">1</span> <span style="color:#66d9ef">ether</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>e18);
+    }
+}
+</code></pre></div><ul>
+<li>练习，在Solidity中声明时间和日期后缀</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// SPDX-License-Identifier: MIT
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">pragma</span> <span style="color:#a6e22e">solidity</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0.7.0</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.9.0</span>;
+
+<span style="color:#a6e22e">contract</span> <span style="color:#a6e22e">learnEtherUnits</span> {
+    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">exercise</span>() <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">pure</span>{
+        <span style="color:#a6e22e">assert</span>(<span style="color:#ae81ff">1</span> <span style="color:#a6e22e">minutes</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">60</span> <span style="color:#a6e22e">seconds</span>);
+        <span style="color:#a6e22e">assert</span>(<span style="color:#ae81ff">24</span> <span style="color:#a6e22e">hours</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1440</span> <span style="color:#a6e22e">minutes</span>);
+        <span style="color:#a6e22e">assert</span>(<span style="color:#ae81ff">1</span> <span style="color:#a6e22e">days</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">24</span> <span style="color:#a6e22e">hours</span>);
+        <span style="color:#a6e22e">assert</span>(<span style="color:#ae81ff">1</span> <span style="color:#a6e22e">weeks</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">7</span> <span style="color:#a6e22e">days</span>);
     }
 }
 </code></pre></div><ul class="pa0">

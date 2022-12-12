@@ -3,13 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://example.org/posts/learn-solidity-5-global-variables-in-solidity/</loc>
+    <lastmod>2022-12-12T11:40:19+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://example.org/</loc>
-    <lastmod>2022-12-12T10:49:20+08:00</lastmod>
+    <lastmod>2022-12-12T11:40:19+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://example.org/posts/</loc>
-    <lastmod>2022-12-12T10:49:20+08:00</lastmod>
+    <lastmod>2022-12-12T11:40:19+08:00</lastmod>
   </url>
   
   <url>

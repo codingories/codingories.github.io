@@ -35,7 +35,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://example.org/" />
-<meta property="og:updated_time" content="2022-12-12T10:49:20+08:00" />
+<meta property="og:updated_time" content="2022-12-12T11:40:19+08:00" />
 <meta itemprop="name" content="Ories的博客">
 <meta itemprop="description" content="">
 <meta name="twitter:card" content="summary"/>
@@ -129,6 +129,33 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/posts/learn-solidity-5-global-variables-in-solidity/" class="color-inherit dim link">
+            Learn Solidity 5 Global Variables in Solidity
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          全局变量有很多，这里只讨论一些常用的，全部可以参考官方文档
+  中文文档
+  两个合约交互的例子，使用公共的变量msg.sender
+  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract LedgerBalance { mapping(address =&gt; uint) balance; function updatesBalance(uint newBalance) public { balance[msg.sender] = newBalance; } } contract Updated { function updatesBalance() public { LedgerBalance ledgerBalance = new LedgerBalance(); ledgerBalance.updatesBalance(30); } }  一些其它的全局变量  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract SimpleStorage { uint storedData; function set(uint x) public { // storedData = x; // 区块难度 // storedData = block.
+        </div>
+          <a href="/posts/learn-solidity-5-global-variables-in-solidity/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="/posts/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8webstorm%E8%BF%9E%E6%8E%A5remix%E5%BC%80%E5%8F%91%E5%8C%BA%E5%9D%97%E9%93%BE/" class="color-inherit dim link">
             如何使用webstorm连接remix开发区块链
             </a>
@@ -175,37 +202,18 @@ npx remixd -s . --remix-ide https://remix.ethereum.org 之后打开https://remix
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/posts/learn-solidity-3-mapping/" class="color-inherit dim link">
-            Learn Solidity 3 Mapping
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          这里的map可以理解成js，或者python的map。
- 代码例子  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; // 如果map没有值返回0 contract learnMapping { mapping(address =&gt; uint) public myMap; function getAddress(address _addr) public view returns(uint) { return myMap[_addr]; } function setAddress(address _addr, uint _i) public { myMap[_addr] = _i; } function removeAddress(address _addr) public { delete myMap[_addr]; } }  练习  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract learnMapping { struct Movie { string title; string director; } mapping(uint =&gt; Movie) movie; function addMovie(uint id, string memory title, string memory director) public { movie[id] = Movie(title, director); } }  嵌套映射例子  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.
-        </div>
-          <a href="/posts/learn-solidity-3-mapping/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/posts/learn-solidity-3-mapping/" class="link black dim">
+              Learn Solidity 3 Mapping
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="/posts/learn-solidity-2-structs/" class="link black dim">
@@ -222,12 +230,6 @@ npx remixd -s . --remix-ide https://remix.ethereum.org 之后打开https://remix
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="/posts/learn-solidity-0-array/" class="link black dim">
               Learn Solidity 0 Array
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="/posts/%E5%B7%A5%E7%A8%8B%E5%8C%96%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/" class="link black dim">
-              工程化面试相关
             </a>
           </h2>
         

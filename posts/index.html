@@ -35,7 +35,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://example.org/posts/" />
-<meta property="og:updated_time" content="2022-12-12T10:49:20+08:00" />
+<meta property="og:updated_time" content="2022-12-12T11:40:19+08:00" />
 <meta itemprop="name" content="Posts">
 <meta itemprop="description" content="">
 <meta name="twitter:card" content="summary"/>
@@ -97,6 +97,24 @@
   <article class="pa3 pa4-ns nested-copy-line-height nested-img">
     <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
     <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/learn-solidity-5-global-variables-in-solidity/" class="link black dim">
+        Learn Solidity 5 Global Variables in Solidity
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      全局变量有很多，这里只讨论一些常用的，全部可以参考官方文档
+  中文文档
+  两个合约交互的例子，使用公共的变量msg.sender
+  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract LedgerBalance { mapping(address =&gt; uint) balance; function updatesBalance(uint newBalance) public { balance[msg.sender] = newBalance; } } contract Updated { function updatesBalance() public { LedgerBalance ledgerBalance = new LedgerBalance(); ledgerBalance.updatesBalance(30); } }  一些其它的全局变量  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract SimpleStorage { uint storedData; function set(uint x) public { // storedData = x; // 区块难度 // storedData = block.
+    </div>
+  </div>
+</div>
+</div>
       
         <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
   <div class="bg-white mb3 pa4 gray overflow-hidden">
@@ -252,22 +270,27 @@ function render(vdom) { // 如果是字符串或者数字，创建一个文本�
 </div>
 </div>
       
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="/posts/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/" class="link black dim">
-        开博大吉
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      大家好 尝试下一下hugo的博客。
-    </div>
-  </div>
-</div>
-</div>
-      
     </section>
+<ul class="pagination">
+  <li class="page-item">
+    <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item disabled">
+    <a  class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/posts/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/2/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
+</ul>
 
 </article>
 
