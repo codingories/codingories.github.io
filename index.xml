@@ -6,7 +6,26 @@
     <description>Recent content on Ories的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Mon, 12 Dec 2022 11:40:19 +0800</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 14 Dec 2022 14:57:24 +0800</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learn Solidity 7 View and Pure Modifers</title>
+      <link>http://example.org/posts/learn-solidity-7-view-and-pure-modifers/</link>
+      <pubDate>Wed, 14 Dec 2022 14:57:24 +0800</pubDate>
+      
+      <guid>http://example.org/posts/learn-solidity-7-view-and-pure-modifers/</guid>
+      <description>view 就是限定不能修改状态，用于直接返回状态。pure 就是用于返回计算结果，不能修改状态。
+ 基本例子  // SPDX-License-Identifier: MIT pragma solidity &amp;gt;=0.7.0 &amp;lt;0.9.0; contract MyContract { uint256 value; // 加了view才能显示，view的本质确保我们不能够修改值，只读  function getValue() external view returns (uint256) { // eth call  // 因为view,这里不能够修改,只能返回皇台  // value = value + 2;  return value; } function getNewValue() external pure returns (uint256) { // eth call  // pure表示不会修改状态，只返回计算值  return 3 + 3; } function setValue(uint256 _value) external { // eth send transaction  value = _value; } }  练习  // SPDX-License-Identifier: MIT pragma solidity &amp;gt;=0.</description>
+    </item>
+    
+    <item>
+      <title>Learn Solidity 6 Function Modifers</title>
+      <link>http://example.org/posts/learn-solidity-6-function-modifers/</link>
+      <pubDate>Wed, 14 Dec 2022 14:57:07 +0800</pubDate>
+      
+      <guid>http://example.org/posts/learn-solidity-6-function-modifers/</guid>
+      <description>函数修饰符  Function Modifier 即函数修饰符，用于修改函数的行为。感觉有点像 python 的装饰器，具体看代码。  // SPDX-License-Identifier: MIT pragma solidity &amp;gt;=0.7.0 &amp;lt;0.9.0; // Function Modifiers are customizable modification for functions contract Owner { address owner; // 当部署合约的时候，我们想把地址设置给owner(msg.sender)  constructor() public { owner = msg.sender; } modifier onlyOwner() { // 个性化的逻辑，修改function  require(msg.sender == owner); // _代表这个function还在继续  _; } // 练习: 写一个叫costs的修饰符，用于检查sender的金额比price大，并且需要接受一个参数  modifier costs(uint256 price) { // what msg.value: 表示发送给合约的信息中带有的金额  require(msg.value &amp;gt;= price); _; } } contract Register is Owner { mapping(address =&amp;gt; bool) registeredAddresses; uint256 price; constructor(uint256 initialPrice) public { price = initialPrice; } function register() public payable costs(price) { registeredAddresses[msg.</description>
+    </item>
+    
     <item>
       <title>Learn Solidity 5 Global Variables in Solidity</title>
       <link>http://example.org/posts/learn-solidity-5-global-variables-in-solidity/</link>

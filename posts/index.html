@@ -35,7 +35,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://example.org/posts/" />
-<meta property="og:updated_time" content="2022-12-12T11:40:19+08:00" />
+<meta property="og:updated_time" content="2022-12-14T14:57:24+08:00" />
 <meta itemprop="name" content="Posts">
 <meta itemprop="description" content="">
 <meta name="twitter:card" content="summary"/>
@@ -97,6 +97,37 @@
   <article class="pa3 pa4-ns nested-copy-line-height nested-img">
     <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
     <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/learn-solidity-7-view-and-pure-modifers/" class="link black dim">
+        Learn Solidity 7 View and Pure Modifers
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      view 就是限定不能修改状态，用于直接返回状态。pure 就是用于返回计算结果，不能修改状态。
+ 基本例子  // SPDX-License-Identifier: MIT pragma solidity &gt;=0.7.0 &lt;0.9.0; contract MyContract { uint256 value; // 加了view才能显示，view的本质确保我们不能够修改值，只读  function getValue() external view returns (uint256) { // eth call  // 因为view,这里不能够修改,只能返回皇台  // value = value + 2;  return value; } function getNewValue() external pure returns (uint256) { // eth call  // pure表示不会修改状态，只返回计算值  return 3 + 3; } function setValue(uint256 _value) external { // eth send transaction  value = _value; } }  练习  // SPDX-License-Identifier: MIT pragma solidity &gt;=0.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/learn-solidity-6-function-modifers/" class="link black dim">
+        Learn Solidity 6 Function Modifers
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      函数修饰符  Function Modifier 即函数修饰符，用于修改函数的行为。感觉有点像 python 的装饰器，具体看代码。  // SPDX-License-Identifier: MIT pragma solidity &gt;=0.7.0 &lt;0.9.0; // Function Modifiers are customizable modification for functions contract Owner { address owner; // 当部署合约的时候，我们想把地址设置给owner(msg.sender)  constructor() public { owner = msg.sender; } modifier onlyOwner() { // 个性化的逻辑，修改function  require(msg.sender == owner); // _代表这个function还在继续  _; } // 练习: 写一个叫costs的修饰符，用于检查sender的金额比price大，并且需要接受一个参数  modifier costs(uint256 price) { // what msg.value: 表示发送给合约的信息中带有的金额  require(msg.value &gt;= price); _; } } contract Register is Owner { mapping(address =&gt; bool) registeredAddresses; uint256 price; constructor(uint256 initialPrice) public { price = initialPrice; } function register() public payable costs(price) { registeredAddresses[msg.
+    </div>
+  </div>
+</div>
+</div>
       
         <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
   <div class="bg-white mb3 pa4 gray overflow-hidden">
@@ -231,40 +262,6 @@ npx remixd -s . --remix-ide https://remix.ethereum.org 之后打开https://remix
   sass-loader 把 SASS/SCSS 变成 CSS
   css-loader 把 CSS 变成 JS 字符串
   style-loader 把 JS 字符串变成 style 标签
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="/posts/react%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/" class="link black dim">
-        React面试相关
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      1. 什么是虚拟dom  什么是虚拟dom，或者问虚拟DOM的原理是什么相关的问题。  参考官方文档: https://zh-hans.reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom 自己回答 参考博客: https://juejin.cn/post/7136563454525063205    1.是什么 虚拟DOM就是虚拟节点(这句汉化很重要)。React用JS对象来模拟真实的DOM节点，然后将其渲 染成真实的DOM节点。也就是说，它不是真实的DOM节点，但是代表真实的DOM节点。 2.怎么做 第一步是模拟 用JSX语法写出来的div其实就是一个虚拟节点:
-&lt;div id=&quot;x&quot;&gt; &lt;span class=&quot;red&quot;&gt;hi&lt;/span&gt;	&lt;/div&gt;	会得到这样一个对象，它有三个重要属性，第一个是tag表示是哪个标签，第二个是props表示有哪些属性，第三个是children表示它有哪些子标签或者说子文本
-{ tag: &#39;div&#39;, props: { id: &#39;x&#39; }, children: [ { tag: &#39;span&#39;, props: { className: &#39;red&#39; }, children: [ &#39;hi&#39; ], } ] } 为什么写这么个标签能变成这样一个对象，这是因为JSX的语法。能做到这一点是因为JSX语法会被转译为createElement函数调用(也叫h函数)，如下:
-React.createElement(&#34;div&#34;,{ id:&#34;x&#34;}, React.createElement(&#34;span&#34;,{ class: &#34;red&#34; },&#34;hi&#34;) ) 第二步是将虚拟节点渲染为真实节点， 参考:https://juejin.cn/post/6844903870229905422
-function render(vdom) { // 如果是字符串或者数字，创建一个文本节点  if (typeof vdom === &#39;string&#39; || typeof vdom === &#39;number&#39;) { return document.
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="/posts/screeps%E8%AE%B0%E5%BD%95%E4%B8%80/" class="link black dim">
-        Screeps记录一
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      教学中的命令 Game.spawns['Spawn1'].spawnCreep( [WORK, CARRY, MOVE], 'Harvester1' ); 
     </div>
   </div>
 </div>

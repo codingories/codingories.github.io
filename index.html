@@ -35,7 +35,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://example.org/" />
-<meta property="og:updated_time" content="2022-12-12T11:40:19+08:00" />
+<meta property="og:updated_time" content="2022-12-14T14:57:24+08:00" />
 <meta itemprop="name" content="Ories的博客">
 <meta itemprop="description" content="">
 <meta name="twitter:card" content="summary"/>
@@ -129,6 +129,55 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/posts/learn-solidity-7-view-and-pure-modifers/" class="color-inherit dim link">
+            Learn Solidity 7 View and Pure Modifers
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          view 就是限定不能修改状态，用于直接返回状态。pure 就是用于返回计算结果，不能修改状态。
+ 基本例子  // SPDX-License-Identifier: MIT pragma solidity &gt;=0.7.0 &lt;0.9.0; contract MyContract { uint256 value; // 加了view才能显示，view的本质确保我们不能够修改值，只读  function getValue() external view returns (uint256) { // eth call  // 因为view,这里不能够修改,只能返回皇台  // value = value + 2;  return value; } function getNewValue() external pure returns (uint256) { // eth call  // pure表示不会修改状态，只返回计算值  return 3 + 3; } function setValue(uint256 _value) external { // eth send transaction  value = _value; } }  练习  // SPDX-License-Identifier: MIT pragma solidity &gt;=0.
+        </div>
+          <a href="/posts/learn-solidity-7-view-and-pure-modifers/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/posts/learn-solidity-6-function-modifers/" class="color-inherit dim link">
+            Learn Solidity 6 Function Modifers
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          函数修饰符  Function Modifier 即函数修饰符，用于修改函数的行为。感觉有点像 python 的装饰器，具体看代码。  // SPDX-License-Identifier: MIT pragma solidity &gt;=0.7.0 &lt;0.9.0; // Function Modifiers are customizable modification for functions contract Owner { address owner; // 当部署合约的时候，我们想把地址设置给owner(msg.sender)  constructor() public { owner = msg.sender; } modifier onlyOwner() { // 个性化的逻辑，修改function  require(msg.sender == owner); // _代表这个function还在继续  _; } // 练习: 写一个叫costs的修饰符，用于检查sender的金额比price大，并且需要接受一个参数  modifier costs(uint256 price) { // what msg.value: 表示发送给合约的信息中带有的金额  require(msg.value &gt;= price); _; } } contract Register is Owner { mapping(address =&gt; bool) registeredAddresses; uint256 price; constructor(uint256 initialPrice) public { price = initialPrice; } function register() public payable costs(price) { registeredAddresses[msg.
+        </div>
+          <a href="/posts/learn-solidity-6-function-modifers/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="/posts/learn-solidity-5-global-variables-in-solidity/" class="color-inherit dim link">
             Learn Solidity 5 Global Variables in Solidity
             </a>
@@ -148,66 +197,24 @@
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/posts/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8webstorm%E8%BF%9E%E6%8E%A5remix%E5%BC%80%E5%8F%91%E5%8C%BA%E5%9D%97%E9%93%BE/" class="color-inherit dim link">
-            如何使用webstorm连接remix开发区块链
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          运行命令，全局安装，注意切换源
-npm install -g @remix-project/remixd 点击run-&gt; configuration 配置一下working directory，选到自己的工作目录 配置一下JavaScript file，选择到刚才安装的安装包 通过npm root -g可以查找到安装包的路径，由于我用了nrm进行node版本管理，我的包存放的位置在
-/Users/ories/.nvm/versions/node/v16.15.0/lib/node_modules 最终输入的值
-/Users/ories/.nvm/versions/node/v16.15.0/lib/node_modules/@remix-project/remixd/src/bin/remixd.js 浏览器地址输入
-https://remix.ethereum.org/ webstorm安装下sol的插件。
-然后有两种方式启动,第一种，view -&gt; tool windows -&gt; services 第二种方式，命令行运行
-npx remixd -s . --remix-ide https://remix.ethereum.org 之后打开https://remix.ethereum.org，点击连接到localhost即可
-        </div>
-          <a href="/posts/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8webstorm%E8%BF%9E%E6%8E%A5remix%E5%BC%80%E5%8F%91%E5%8C%BA%E5%9D%97%E9%93%BE/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/posts/learn-solidity-4-unit/" class="color-inherit dim link">
-            Learn Solidity 4 Unit
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          solidity中的单位  uint表示uint256，表示0-2^256-1 // 科学计算器地址: https://www.desmos.com/scientific?lang=zh-CN uint32 表示0-2^32-1 uint16  转换例子  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; // 从高到低 uint32 a = 0x12345678; uint16 b = uint16(a); // b = 0x5678 // 从低到高 uint16 c = 0x1234; uint32 d = uint32(c); // d = 0x00001234 // 同理 bytes2 和 bytes1 // 从高到低失去精度 bytes2 e = 0x1234; bytes1 f = bytes1(e) // f = 0x12 // 从低到高补0 bytes2 g = 0x1234; bytes4 h = bytes4(g); // h = 0x12340000  以太坊单位换算  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.
-        </div>
-          <a href="/posts/learn-solidity-4-unit/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/posts/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8webstorm%E8%BF%9E%E6%8E%A5remix%E5%BC%80%E5%8F%91%E5%8C%BA%E5%9D%97%E9%93%BE/" class="link black dim">
+              如何使用webstorm连接remix开发区块链
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/posts/learn-solidity-4-unit/" class="link black dim">
+              Learn Solidity 4 Unit
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="/posts/learn-solidity-3-mapping/" class="link black dim">
@@ -218,18 +225,6 @@ npx remixd -s . --remix-ide https://remix.ethereum.org 之后打开https://remix
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="/posts/learn-solidity-2-structs/" class="link black dim">
               Learn Solidity 2 Structs
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="/posts/learn-solidity-1-enum/" class="link black dim">
-              Learn Solidity 1 Enum
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="/posts/learn-solidity-0-array/" class="link black dim">
-              Learn Solidity 0 Array
             </a>
           </h2>
         

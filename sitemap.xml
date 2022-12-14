@@ -3,17 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/posts/learn-solidity-5-global-variables-in-solidity/</loc>
-    <lastmod>2022-12-12T11:40:19+08:00</lastmod>
+    <loc>http://example.org/posts/learn-solidity-7-view-and-pure-modifers/</loc>
+    <lastmod>2022-12-14T14:57:24+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://example.org/</loc>
-    <lastmod>2022-12-12T11:40:19+08:00</lastmod>
+    <lastmod>2022-12-14T14:57:24+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://example.org/posts/</loc>
+    <lastmod>2022-12-14T14:57:24+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/posts/learn-solidity-6-function-modifers/</loc>
+    <lastmod>2022-12-14T14:57:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/posts/learn-solidity-5-global-variables-in-solidity/</loc>
     <lastmod>2022-12-12T11:40:19+08:00</lastmod>
   </url>
   
