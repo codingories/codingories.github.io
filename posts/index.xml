@@ -6,7 +6,38 @@
     <description>Recent content in Posts on Ories的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Wed, 14 Dec 2022 14:57:24 +0800</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Dec 2022 21:21:47 +0800</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lear Solidity 10 Cryptographic Functions</title>
+      <link>http://example.org/posts/lear-solidity-10-cryptographic-functions/</link>
+      <pubDate>Thu, 15 Dec 2022 21:21:47 +0800</pubDate>
+      
+      <guid>http://example.org/posts/lear-solidity-10-cryptographic-functions/</guid>
+      <description>使用算法实现随机数的生成 // SPDX-License-Identifier: MIT pragma solidity &amp;gt;=0.7.0 &amp;lt;0.9.0; contract GenerateRandomNumber { // modulo (%)  // 要做的事情是接受一个输入范围，使用加密图形散列算法，得到随机数字  function randMod(uint256 range) external view returns (uint256) { // abi.encodePacked 可以连接参数  return uint256( keccak256( abi.encodePacked( block.timestamp, block.difficulty, msg.sender ) ) ) % range; } }  练习，使用oracle dynamic feeds实现随机  Oracle函数 这段代码定义了一个名为 Oracle 的智能合约。智能合约是一种区块链上的自动执行的程序，它遵循由 Solidity 编写的智能合约语言。 在这个智能合约中，定义了一个变量 admin，用来存储发布智能合约的地址。还定义了一个 uint256 类型的公共变量 rand，用来存储一个随机数。 智能合约还定义了一个名为 constructor 的构造函数，它在智能合约被部署时会自动执行。在这个构造函数中，会将 admin 变量的值设置为部署智能合约的地址。 智能合约还定义了一个名为 feedRand 的函数，它允许指定的用户更新随机数的值。这个函数只能由 admin 调用，因为在函数中会检查调用者的地址是否与 admin 的地址相同。如果调用者是 admin，那么函数会将 rand 变量的值设置为传入函数中的参数 _rand。 GenerateRandomNumber函数 这段代码定义了一个名为 GenerateRandomNumber 的智能合约。这个智能合约接受一个输入范围，并使用加密图形散列算法（cryptographic hash function）生成随机数。智能合约定义了一个名为 oracle 的变量，用来引用一个 Oracle 合约的实例。智能合约还定义了一个构造函数，该函数接受一个地址，并使用该地址初始化 oracle 变量。智能合约还定义了一个名为 randMod 的函数，该函数接受一个 uint256 类型的参数 range，并返回一个 uint256 类型的随机数。在函数中，会使用 oracle.</description>
+    </item>
+    
+    <item>
+      <title>Learn Solidty 9 Function Overload</title>
+      <link>http://example.org/posts/learn-solidty-9-function-overload/</link>
+      <pubDate>Thu, 15 Dec 2022 20:45:26 +0800</pubDate>
+      
+      <guid>http://example.org/posts/learn-solidty-9-function-overload/</guid>
+      <description>简单理解就是 java 里面的函数的重载，相同函数名，不同的参数或者参数类型就是重载  举例  // SPDX-License-Identifier: MIT pragma solidity &amp;gt;=0.7.0 &amp;lt;0.9.0; contract FunctionOverloading { function x(uint256 lightSwitch, uint256 wallet) public {} function x(uint256 wallet) public {} // 重载练习  function getSum(uint256 a, uint256 b) public pure returns (uint256) { return a + b; } function getSum( uint256 a, uint256 b, uint256 c ) public pure returns (uint256) { return a + b + c; } function getSumTwoArgs() public pure returns (uint256) { return getSum(2, 3); } function getSumThreeArgs() public pure returns (uint256) { return getSum(1, 5, 6); } } </description>
+    </item>
+    
+    <item>
+      <title>Learn Solidity 8 FallBack Functions</title>
+      <link>http://example.org/posts/learn-solidity-8-fallback-functions/</link>
+      <pubDate>Thu, 15 Dec 2022 20:45:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/learn-solidity-8-fallback-functions/</guid>
+      <description>view 就是限定不能修改状态，用于直接返回状态。pure 就是用于返回计算结果，不能修改状态。
+ 基本例子  在 Solidity 中，call 和 transfer 关键字用于调用其它合约的函数并发送以太币。
+call 关键字用于调用其它合约上的函数。它通常用于与其它合约交互，而无需创建新的事务。如果不希望为函数调用支付 gas 或者希望调用不属于你的合约上的函数，这将会非常有用。
+另一方面，transfer 关键字用于向其它合约或地址发送以太币。与 call 不同，transfer 总是会创建新事务并消耗 gas。它通常用于向其它合约或地址发送以太币作为合约的逻辑的一部分。
+// SPDX-License-Identifier: MIT pragma solidity &amp;gt;=0.7.0 &amp;lt;0.9.0; /* * FallBack Function * 1. 没有名字，是一个匿名函数 * 2. 没有任何输入 * 3. 没有任何输出 * 4. 必须背定义成external * 为什么要用？ 当我们调用一些不存在的函数，或者是通过 send, transfer 或 call 发送以太给一个合约 */ contract FallBack { event Log(uint256 gas); fallback() external payable { // 不推荐些太多的代码在这里,这个函数将会失败如果它用了太多的gas，通常我们不写任何代码  // 触发send的方法， 我们将得到2300gas 以足够发出一个日志  // 触发call的方法， 我们将得到所有的gas  // 这里是一个特殊的函数，返回还剩下多少gas  emit Log(gasleft()); } function getBalance() public view returns (uint256) { // 返回合约存储的余额;  return address(this).</description>
+    </item>
+    
     <item>
       <title>Learn Solidity 7 View and Pure Modifers</title>
       <link>http://example.org/posts/learn-solidity-7-view-and-pure-modifers/</link>

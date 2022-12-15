@@ -35,7 +35,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://example.org/posts/" />
-<meta property="og:updated_time" content="2022-12-14T14:57:24+08:00" />
+<meta property="og:updated_time" content="2022-12-15T21:21:47+08:00" />
 <meta itemprop="name" content="Posts">
 <meta itemprop="description" content="">
 <meta name="twitter:card" content="summary"/>
@@ -97,6 +97,55 @@
   <article class="pa3 pa4-ns nested-copy-line-height nested-img">
     <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
     <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/lear-solidity-10-cryptographic-functions/" class="link black dim">
+        Lear Solidity 10 Cryptographic Functions
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      使用算法实现随机数的生成 // SPDX-License-Identifier: MIT pragma solidity &gt;=0.7.0 &lt;0.9.0; contract GenerateRandomNumber { // modulo (%)  // 要做的事情是接受一个输入范围，使用加密图形散列算法，得到随机数字  function randMod(uint256 range) external view returns (uint256) { // abi.encodePacked 可以连接参数  return uint256( keccak256( abi.encodePacked( block.timestamp, block.difficulty, msg.sender ) ) ) % range; } }  练习，使用oracle dynamic feeds实现随机  Oracle函数 这段代码定义了一个名为 Oracle 的智能合约。智能合约是一种区块链上的自动执行的程序，它遵循由 Solidity 编写的智能合约语言。 在这个智能合约中，定义了一个变量 admin，用来存储发布智能合约的地址。还定义了一个 uint256 类型的公共变量 rand，用来存储一个随机数。 智能合约还定义了一个名为 constructor 的构造函数，它在智能合约被部署时会自动执行。在这个构造函数中，会将 admin 变量的值设置为部署智能合约的地址。 智能合约还定义了一个名为 feedRand 的函数，它允许指定的用户更新随机数的值。这个函数只能由 admin 调用，因为在函数中会检查调用者的地址是否与 admin 的地址相同。如果调用者是 admin，那么函数会将 rand 变量的值设置为传入函数中的参数 _rand。 GenerateRandomNumber函数 这段代码定义了一个名为 GenerateRandomNumber 的智能合约。这个智能合约接受一个输入范围，并使用加密图形散列算法（cryptographic hash function）生成随机数。智能合约定义了一个名为 oracle 的变量，用来引用一个 Oracle 合约的实例。智能合约还定义了一个构造函数，该函数接受一个地址，并使用该地址初始化 oracle 变量。智能合约还定义了一个名为 randMod 的函数，该函数接受一个 uint256 类型的参数 range，并返回一个 uint256 类型的随机数。在函数中，会使用 oracle.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/learn-solidty-9-function-overload/" class="link black dim">
+        Learn Solidty 9 Function Overload
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      简单理解就是 java 里面的函数的重载，相同函数名，不同的参数或者参数类型就是重载  举例  // SPDX-License-Identifier: MIT pragma solidity &gt;=0.7.0 &lt;0.9.0; contract FunctionOverloading { function x(uint256 lightSwitch, uint256 wallet) public {} function x(uint256 wallet) public {} // 重载练习  function getSum(uint256 a, uint256 b) public pure returns (uint256) { return a + b; } function getSum( uint256 a, uint256 b, uint256 c ) public pure returns (uint256) { return a + b + c; } function getSumTwoArgs() public pure returns (uint256) { return getSum(2, 3); } function getSumThreeArgs() public pure returns (uint256) { return getSum(1, 5, 6); } } 
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/learn-solidity-8-fallback-functions/" class="link black dim">
+        Learn Solidity 8 FallBack Functions
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      view 就是限定不能修改状态，用于直接返回状态。pure 就是用于返回计算结果，不能修改状态。
+ 基本例子  在 Solidity 中，call 和 transfer 关键字用于调用其它合约的函数并发送以太币。
+call 关键字用于调用其它合约上的函数。它通常用于与其它合约交互，而无需创建新的事务。如果不希望为函数调用支付 gas 或者希望调用不属于你的合约上的函数，这将会非常有用。
+另一方面，transfer 关键字用于向其它合约或地址发送以太币。与 call 不同，transfer 总是会创建新事务并消耗 gas。它通常用于向其它合约或地址发送以太币作为合约的逻辑的一部分。
+// SPDX-License-Identifier: MIT pragma solidity &gt;=0.7.0 &lt;0.9.0; /* * FallBack Function * 1. 没有名字，是一个匿名函数 * 2. 没有任何输入 * 3. 没有任何输出 * 4. 必须背定义成external * 为什么要用？ 当我们调用一些不存在的函数，或者是通过 send, transfer 或 call 发送以太给一个合约 */ contract FallBack { event Log(uint256 gas); fallback() external payable { // 不推荐些太多的代码在这里,这个函数将会失败如果它用了太多的gas，通常我们不写任何代码  // 触发send的方法， 我们将得到2300gas 以足够发出一个日志  // 触发call的方法， 我们将得到所有的gas  // 这里是一个特殊的函数，返回还剩下多少gas  emit Log(gasleft()); } function getBalance() public view returns (uint256) { // 返回合约存储的余额;  return address(this).
+    </div>
+  </div>
+</div>
+</div>
       
         <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
   <div class="bg-white mb3 pa4 gray overflow-hidden">
@@ -209,59 +258,6 @@ npx remixd -s . --remix-ide https://remix.ethereum.org 之后打开https://remix
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       用于定义自己的数据结构，有点像ts中的类型  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract learnStructs { struct Movie { string title; string director; uint movie_id; } Movie movie; function setMovie() public { movie = Movie(&#39;Blade Runnder&#39;, &#39; Ridley Scott&#39;, 1); } function getMovieId() public view returns(uint) { return movie.movie_id; } }  练习  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract learnStructs { struct Movie { string title; string director; uint movie_id; } Movie movie; Movie comedy; function setMovie() public { // movie = Movie(&#39;Blade Runnder&#39;, &#39; Ridley Scott&#39;, 1);  // movie = Movie(&#39;Escaoe From New York&#39;, &#39;John Carpenter&#39;, 3);  comedy = Movie(&#39;Zoolander&#39;, &#39;Ben Stiller&#39;, 4); } function getMovieId() public view returns(uint) { // return movie.
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="/posts/learn-solidity-1-enum/" class="link black dim">
-        Learn Solidity 1 Enum
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      简单可以理解成ts中的枚举值  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract enumsLearn { enum frenchFriesSize {LARGE, MEDIUM, SMALL} // 默认是第一个  frenchFriesSize choice; frenchFriesSize constant defaultChoice = frenchFriesSize.MEDIUM; function setSmall() public { choice = frenchFriesSize.SMALL; } function getChoice() public view returns(frenchFriesSize) { return choice; } function getDefaultChoice() public pure returns (uint) { return uint(defaultChoice); } }  练习  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract enumsLearn { enum shirtColor {RED, WHITE, BLUE} shirtColor choice; shirtColor constant defaultChoice = shirtColor.
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="/posts/learn-solidity-0-array/" class="link black dim">
-        Learn Solidity 0 Array
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      相关代码，总体和js数组很相似  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract learnArrays { uint[] public myArray; uint[] public myArray2; uint[200] public myFixedSizedArray; function push(uint number) public { myArray.push(number); } function pop() public { myArray.pop(); } function getLength() public view returns (uint) { return myArray.length; } function remove(uint i) public { // 当你删掉的时候array的长度没变 [1,2,3]，remove[2]-&gt; [1,2,0]  delete myArray[i]; } // 练习  uint[] public changeArray; function removeElement(uint i) public { changeArray[i] = changeArray[changeArray.
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="/posts/%E5%B7%A5%E7%A8%8B%E5%8C%96%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/" class="link black dim">
-        工程化面试相关
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      别人写的blog 1. 常见 loader 和 plugin 有哪些？二者区别是什么？   常见 loader 在 webpack 文档里写了：传送门
-  必须记住的一些loader
-    babel-loader 把 JS/TS 变成 JS
-  ts-loader 把 TS 变成 JS，并提示类型错误 md相关
-  markdown-loader 把 markdown 变成 html
-  html-loader 把 html 变成 JS 字符串 css 相关
-  sass-loader 把 SASS/SCSS 变成 CSS
-  css-loader 把 CSS 变成 JS 字符串
-  style-loader 把 JS 字符串变成 style 标签
     </div>
   </div>
 </div>

@@ -3,17 +3,32 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/posts/learn-solidity-7-view-and-pure-modifers/</loc>
-    <lastmod>2022-12-14T14:57:24+08:00</lastmod>
+    <loc>http://example.org/posts/lear-solidity-10-cryptographic-functions/</loc>
+    <lastmod>2022-12-15T21:21:47+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://example.org/</loc>
-    <lastmod>2022-12-14T14:57:24+08:00</lastmod>
+    <lastmod>2022-12-15T21:21:47+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://example.org/posts/</loc>
+    <lastmod>2022-12-15T21:21:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/posts/learn-solidty-9-function-overload/</loc>
+    <lastmod>2022-12-15T20:45:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/posts/learn-solidity-8-fallback-functions/</loc>
+    <lastmod>2022-12-15T20:45:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/posts/learn-solidity-7-view-and-pure-modifers/</loc>
     <lastmod>2022-12-14T14:57:24+08:00</lastmod>
   </url>
   

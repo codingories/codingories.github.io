@@ -35,7 +35,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://example.org/posts/" />
-<meta property="og:updated_time" content="2022-12-14T14:57:24+08:00" />
+<meta property="og:updated_time" content="2022-12-15T21:21:47+08:00" />
 <meta itemprop="name" content="Posts">
 <meta itemprop="description" content="">
 <meta name="twitter:card" content="summary"/>
@@ -97,6 +97,59 @@
   <article class="pa3 pa4-ns nested-copy-line-height nested-img">
     <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
     <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/learn-solidity-1-enum/" class="link black dim">
+        Learn Solidity 1 Enum
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      简单可以理解成ts中的枚举值  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract enumsLearn { enum frenchFriesSize {LARGE, MEDIUM, SMALL} // 默认是第一个  frenchFriesSize choice; frenchFriesSize constant defaultChoice = frenchFriesSize.MEDIUM; function setSmall() public { choice = frenchFriesSize.SMALL; } function getChoice() public view returns(frenchFriesSize) { return choice; } function getDefaultChoice() public pure returns (uint) { return uint(defaultChoice); } }  练习  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract enumsLearn { enum shirtColor {RED, WHITE, BLUE} shirtColor choice; shirtColor constant defaultChoice = shirtColor.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/learn-solidity-0-array/" class="link black dim">
+        Learn Solidity 0 Array
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      相关代码，总体和js数组很相似  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract learnArrays { uint[] public myArray; uint[] public myArray2; uint[200] public myFixedSizedArray; function push(uint number) public { myArray.push(number); } function pop() public { myArray.pop(); } function getLength() public view returns (uint) { return myArray.length; } function remove(uint i) public { // 当你删掉的时候array的长度没变 [1,2,3]，remove[2]-&gt; [1,2,0]  delete myArray[i]; } // 练习  uint[] public changeArray; function removeElement(uint i) public { changeArray[i] = changeArray[changeArray.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/%E5%B7%A5%E7%A8%8B%E5%8C%96%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/" class="link black dim">
+        工程化面试相关
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      别人写的blog 1. 常见 loader 和 plugin 有哪些？二者区别是什么？   常见 loader 在 webpack 文档里写了：传送门
+  必须记住的一些loader
+    babel-loader 把 JS/TS 变成 JS
+  ts-loader 把 TS 变成 JS，并提示类型错误 md相关
+  markdown-loader 把 markdown 变成 html
+  html-loader 把 html 变成 JS 字符串 css 相关
+  sass-loader 把 SASS/SCSS 变成 CSS
+  css-loader 把 CSS 变成 JS 字符串
+  style-loader 把 JS 字符串变成 style 标签
+    </div>
+  </div>
+</div>
+</div>
       
         <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
   <div class="bg-white mb3 pa4 gray overflow-hidden">

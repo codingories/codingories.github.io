@@ -35,7 +35,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://example.org/" />
-<meta property="og:updated_time" content="2022-12-14T14:57:24+08:00" />
+<meta property="og:updated_time" content="2022-12-15T21:21:47+08:00" />
 <meta itemprop="name" content="Ories的博客">
 <meta itemprop="description" content="">
 <meta name="twitter:card" content="summary"/>
@@ -129,66 +129,66 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/posts/learn-solidity-7-view-and-pure-modifers/" class="color-inherit dim link">
-            Learn Solidity 7 View and Pure Modifers
+          <a href="/posts/lear-solidity-10-cryptographic-functions/" class="color-inherit dim link">
+            Lear Solidity 10 Cryptographic Functions
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          使用算法实现随机数的生成 // SPDX-License-Identifier: MIT pragma solidity &gt;=0.7.0 &lt;0.9.0; contract GenerateRandomNumber { // modulo (%)  // 要做的事情是接受一个输入范围，使用加密图形散列算法，得到随机数字  function randMod(uint256 range) external view returns (uint256) { // abi.encodePacked 可以连接参数  return uint256( keccak256( abi.encodePacked( block.timestamp, block.difficulty, msg.sender ) ) ) % range; } }  练习，使用oracle dynamic feeds实现随机  Oracle函数 这段代码定义了一个名为 Oracle 的智能合约。智能合约是一种区块链上的自动执行的程序，它遵循由 Solidity 编写的智能合约语言。 在这个智能合约中，定义了一个变量 admin，用来存储发布智能合约的地址。还定义了一个 uint256 类型的公共变量 rand，用来存储一个随机数。 智能合约还定义了一个名为 constructor 的构造函数，它在智能合约被部署时会自动执行。在这个构造函数中，会将 admin 变量的值设置为部署智能合约的地址。 智能合约还定义了一个名为 feedRand 的函数，它允许指定的用户更新随机数的值。这个函数只能由 admin 调用，因为在函数中会检查调用者的地址是否与 admin 的地址相同。如果调用者是 admin，那么函数会将 rand 变量的值设置为传入函数中的参数 _rand。 GenerateRandomNumber函数 这段代码定义了一个名为 GenerateRandomNumber 的智能合约。这个智能合约接受一个输入范围，并使用加密图形散列算法（cryptographic hash function）生成随机数。智能合约定义了一个名为 oracle 的变量，用来引用一个 Oracle 合约的实例。智能合约还定义了一个构造函数，该函数接受一个地址，并使用该地址初始化 oracle 变量。智能合约还定义了一个名为 randMod 的函数，该函数接受一个 uint256 类型的参数 range，并返回一个 uint256 类型的随机数。在函数中，会使用 oracle.
+        </div>
+          <a href="/posts/lear-solidity-10-cryptographic-functions/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/posts/learn-solidty-9-function-overload/" class="color-inherit dim link">
+            Learn Solidty 9 Function Overload
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          简单理解就是 java 里面的函数的重载，相同函数名，不同的参数或者参数类型就是重载  举例  // SPDX-License-Identifier: MIT pragma solidity &gt;=0.7.0 &lt;0.9.0; contract FunctionOverloading { function x(uint256 lightSwitch, uint256 wallet) public {} function x(uint256 wallet) public {} // 重载练习  function getSum(uint256 a, uint256 b) public pure returns (uint256) { return a + b; } function getSum( uint256 a, uint256 b, uint256 c ) public pure returns (uint256) { return a + b + c; } function getSumTwoArgs() public pure returns (uint256) { return getSum(2, 3); } function getSumThreeArgs() public pure returns (uint256) { return getSum(1, 5, 6); } } 
+        </div>
+          <a href="/posts/learn-solidty-9-function-overload/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/posts/learn-solidity-8-fallback-functions/" class="color-inherit dim link">
+            Learn Solidity 8 FallBack Functions
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
           view 就是限定不能修改状态，用于直接返回状态。pure 就是用于返回计算结果，不能修改状态。
- 基本例子  // SPDX-License-Identifier: MIT pragma solidity &gt;=0.7.0 &lt;0.9.0; contract MyContract { uint256 value; // 加了view才能显示，view的本质确保我们不能够修改值，只读  function getValue() external view returns (uint256) { // eth call  // 因为view,这里不能够修改,只能返回皇台  // value = value + 2;  return value; } function getNewValue() external pure returns (uint256) { // eth call  // pure表示不会修改状态，只返回计算值  return 3 + 3; } function setValue(uint256 _value) external { // eth send transaction  value = _value; } }  练习  // SPDX-License-Identifier: MIT pragma solidity &gt;=0.
+ 基本例子  在 Solidity 中，call 和 transfer 关键字用于调用其它合约的函数并发送以太币。
+call 关键字用于调用其它合约上的函数。它通常用于与其它合约交互，而无需创建新的事务。如果不希望为函数调用支付 gas 或者希望调用不属于你的合约上的函数，这将会非常有用。
+另一方面，transfer 关键字用于向其它合约或地址发送以太币。与 call 不同，transfer 总是会创建新事务并消耗 gas。它通常用于向其它合约或地址发送以太币作为合约的逻辑的一部分。
+// SPDX-License-Identifier: MIT pragma solidity &gt;=0.7.0 &lt;0.9.0; /* * FallBack Function * 1. 没有名字，是一个匿名函数 * 2. 没有任何输入 * 3. 没有任何输出 * 4. 必须背定义成external * 为什么要用？ 当我们调用一些不存在的函数，或者是通过 send, transfer 或 call 发送以太给一个合约 */ contract FallBack { event Log(uint256 gas); fallback() external payable { // 不推荐些太多的代码在这里,这个函数将会失败如果它用了太多的gas，通常我们不写任何代码  // 触发send的方法， 我们将得到2300gas 以足够发出一个日志  // 触发call的方法， 我们将得到所有的gas  // 这里是一个特殊的函数，返回还剩下多少gas  emit Log(gasleft()); } function getBalance() public view returns (uint256) { // 返回合约存储的余额;  return address(this).
         </div>
-          <a href="/posts/learn-solidity-7-view-and-pure-modifers/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/posts/learn-solidity-6-function-modifers/" class="color-inherit dim link">
-            Learn Solidity 6 Function Modifers
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          函数修饰符  Function Modifier 即函数修饰符，用于修改函数的行为。感觉有点像 python 的装饰器，具体看代码。  // SPDX-License-Identifier: MIT pragma solidity &gt;=0.7.0 &lt;0.9.0; // Function Modifiers are customizable modification for functions contract Owner { address owner; // 当部署合约的时候，我们想把地址设置给owner(msg.sender)  constructor() public { owner = msg.sender; } modifier onlyOwner() { // 个性化的逻辑，修改function  require(msg.sender == owner); // _代表这个function还在继续  _; } // 练习: 写一个叫costs的修饰符，用于检查sender的金额比price大，并且需要接受一个参数  modifier costs(uint256 price) { // what msg.value: 表示发送给合约的信息中带有的金额  require(msg.value &gt;= price); _; } } contract Register is Owner { mapping(address =&gt; bool) registeredAddresses; uint256 price; constructor(uint256 initialPrice) public { price = initialPrice; } function register() public payable costs(price) { registeredAddresses[msg.
-        </div>
-          <a href="/posts/learn-solidity-6-function-modifers/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/posts/learn-solidity-5-global-variables-in-solidity/" class="color-inherit dim link">
-            Learn Solidity 5 Global Variables in Solidity
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          全局变量有很多，这里只讨论一些常用的，全部可以参考官方文档
-  中文文档
-  两个合约交互的例子，使用公共的变量msg.sender
-  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract LedgerBalance { mapping(address =&gt; uint) balance; function updatesBalance(uint newBalance) public { balance[msg.sender] = newBalance; } } contract Updated { function updatesBalance() public { LedgerBalance ledgerBalance = new LedgerBalance(); ledgerBalance.updatesBalance(30); } }  一些其它的全局变量  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract SimpleStorage { uint storedData; function set(uint x) public { // storedData = x; // 区块难度 // storedData = block.
-        </div>
-          <a href="/posts/learn-solidity-5-global-variables-in-solidity/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+          <a href="/posts/learn-solidity-8-fallback-functions/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
       </div>
     </div>
@@ -205,26 +205,26 @@
         
         
           <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/posts/learn-solidity-7-view-and-pure-modifers/" class="link black dim">
+              Learn Solidity 7 View and Pure Modifers
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/posts/learn-solidity-6-function-modifers/" class="link black dim">
+              Learn Solidity 6 Function Modifers
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/posts/learn-solidity-5-global-variables-in-solidity/" class="link black dim">
+              Learn Solidity 5 Global Variables in Solidity
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
             <a href="/posts/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8webstorm%E8%BF%9E%E6%8E%A5remix%E5%BC%80%E5%8F%91%E5%8C%BA%E5%9D%97%E9%93%BE/" class="link black dim">
               如何使用webstorm连接remix开发区块链
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="/posts/learn-solidity-4-unit/" class="link black dim">
-              Learn Solidity 4 Unit
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="/posts/learn-solidity-3-mapping/" class="link black dim">
-              Learn Solidity 3 Mapping
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="/posts/learn-solidity-2-structs/" class="link black dim">
-              Learn Solidity 2 Structs
             </a>
           </h2>
         
