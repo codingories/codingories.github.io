@@ -35,7 +35,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://example.org/posts/" />
-<meta property="og:updated_time" content="2022-12-15T21:21:47+08:00" />
+<meta property="og:updated_time" content="2023-02-07T20:51:57+08:00" />
 <meta itemprop="name" content="Posts">
 <meta itemprop="description" content="">
 <meta name="twitter:card" content="summary"/>
@@ -97,6 +97,22 @@
   <article class="pa3 pa4-ns nested-copy-line-height nested-img">
     <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
     <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/%E5%AD%A6%E4%B9%A0unicloud%E4%B8%80/" class="link black dim">
+        学习unicloud一
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      准备工作  新建一个云空间并关联，最终效果   正式开始  cloudfunctions右键创建云对象，代码就写在里面 index.obj.js中写上  module.exports = { _before: function () { // 通用预处理器 	}, say() { return { errCode: 0, data: &#34;hello, i&#39;m uniCloud&#34; } } } index.vue中使用，点击即可使用
+&lt;template&gt; &lt;view class=&quot;content&quot;&gt; &lt;button @click=&quot;callco&quot;&gt;呼叫服务器&lt;/button&gt; &lt;/view&gt; &lt;/template&gt; &lt;script&gt; export default { data() { return { title: 'Hello' } }, onLoad() { }, methods: { async callco() { const co1 = uniCloud.importObject(&quot;co1&quot;) let res = await co1.
+    </div>
+  </div>
+</div>
+</div>
       
         <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
   <div class="bg-white mb3 pa4 gray overflow-hidden">
@@ -248,21 +264,6 @@ npx remixd -s . --remix-ide https://remix.ethereum.org 之后打开https://remix
 </div>
 </div>
       
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="/posts/learn-solidity-2-structs/" class="link black dim">
-        Learn Solidity 2 Structs
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      用于定义自己的数据结构，有点像ts中的类型  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract learnStructs { struct Movie { string title; string director; uint movie_id; } Movie movie; function setMovie() public { movie = Movie(&#39;Blade Runnder&#39;, &#39; Ridley Scott&#39;, 1); } function getMovieId() public view returns(uint) { return movie.movie_id; } }  练习  // SPDX-License-Identifier: MIT pragma solidity &gt;= 0.7.0 &lt; 0.9.0; contract learnStructs { struct Movie { string title; string director; uint movie_id; } Movie movie; Movie comedy; function setMovie() public { // movie = Movie(&#39;Blade Runnder&#39;, &#39; Ridley Scott&#39;, 1);  // movie = Movie(&#39;Escaoe From New York&#39;, &#39;John Carpenter&#39;, 3);  comedy = Movie(&#39;Zoolander&#39;, &#39;Ben Stiller&#39;, 4); } function getMovieId() public view returns(uint) { // return movie.
-    </div>
-  </div>
-</div>
-</div>
-      
     </section>
 <ul class="pagination">
   <li class="page-item">
@@ -291,7 +292,7 @@ npx remixd -s . --remix-ide https://remix.ethereum.org 之后打开https://remix
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
-    &copy;  Ories的博客 2022 
+    &copy;  Ories的博客 2023 
   </a>
     <div>
 

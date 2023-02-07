@@ -6,7 +6,17 @@
     <description>Recent content on Ories的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Thu, 15 Dec 2022 21:21:47 +0800</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Feb 2023 20:51:57 +0800</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>学习unicloud一</title>
+      <link>http://example.org/posts/%E5%AD%A6%E4%B9%A0unicloud%E4%B8%80/</link>
+      <pubDate>Tue, 07 Feb 2023 20:51:57 +0800</pubDate>
+      
+      <guid>http://example.org/posts/%E5%AD%A6%E4%B9%A0unicloud%E4%B8%80/</guid>
+      <description>准备工作  新建一个云空间并关联，最终效果   正式开始  cloudfunctions右键创建云对象，代码就写在里面 index.obj.js中写上  module.exports = { _before: function () { // 通用预处理器 	}, say() { return { errCode: 0, data: &amp;#34;hello, i&amp;#39;m uniCloud&amp;#34; } } } index.vue中使用，点击即可使用
+&amp;lt;template&amp;gt; &amp;lt;view class=&amp;quot;content&amp;quot;&amp;gt; &amp;lt;button @click=&amp;quot;callco&amp;quot;&amp;gt;呼叫服务器&amp;lt;/button&amp;gt; &amp;lt;/view&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script&amp;gt; export default { data() { return { title: &#39;Hello&#39; } }, onLoad() { }, methods: { async callco() { const co1 = uniCloud.importObject(&amp;quot;co1&amp;quot;) let res = await co1.</description>
+    </item>
+    
     <item>
       <title>Lear Solidity 10 Cryptographic Functions</title>
       <link>http://example.org/posts/lear-solidity-10-cryptographic-functions/</link>
